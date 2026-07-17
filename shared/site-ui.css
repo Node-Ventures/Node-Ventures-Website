@@ -1,0 +1,42 @@
+/* site-ui.css — SHARED button, link, and hover rules for every Node page.
+   This is the single source of truth for interactive styling. Change a button
+   or hover here and it updates the homepage AND every domain page at once.
+   Link this in <head> BEFORE any page-specific <style>.
+
+   Depends on design-system tokens (--color-primary, --color-on-primary, etc.),
+   which the DS bundle defines. */
+
+/* ---- mono section primitives ---- */
+.nv-tag { font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-muted); margin: 0; }
+.nv-label { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--color-primary); font-family: var(--font-mono); font-weight: 500; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; padding: 0; }
+.nv-label::before { content: ""; width: 9px; height: 9px; flex: none; background: var(--color-primary); }
+
+/* ---- text-link hover: label turns purple, no background fill ---- */
+.nv-link, .nv-link-plain { position: relative; display: inline-flex; vertical-align: bottom; }
+.nv-link > span, .nv-link-plain > span { display: block; white-space: nowrap; transition: color 0.2s ease; }
+.nv-link:hover > span, a:hover > .nv-link > span, button:hover > .nv-link > span,
+.nv-link-plain:hover > span, a:hover > .nv-link-plain > span, li:hover > a > .nv-link-plain > span { color: var(--color-primary); }
+
+/* domain list rows — title turns purple on row hover */
+.nv-domain-card:hover .nv-domain-title { color: var(--color-primary) !important; }
+
+/* ---- the button hover system ----
+   Primary (purple fill) → darkens to the press color.
+   Secondary (dashed frame, drawn with repeating gradients) → fills solid purple.
+   These target the DS Button's inline styles, so ANY <Button> picks them up. */
+/* Primary (purple fill) → darkens. Excludes transparent/text buttons (whose
+   label uses --color-primary on hover) so they only recolor text, no fill. */
+button[style*="--color-primary"]:not([style*="transparent"]):not(:disabled):hover { background: var(--color-primary-active) !important; }
+button[style*="repeating-linear-gradient"]:not(:disabled):hover {
+  background: var(--color-primary) !important;
+  background-image: none !important;
+  color: var(--color-on-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+/* ---- circular / square icon arrow buttons ---- */
+.cta-arrow-link:hover .cta-arrow { background: var(--color-primary) !important; border-style: solid !important; border-color: var(--color-primary) !important; }
+.cta-arrow-link:hover .cta-arrow svg { stroke: var(--color-on-primary) !important; }
+.nv-vent-arrow { transition: background .3s, border-color .3s; }
+.nv-vent-arrow:hover { background: var(--color-primary) !important; border-style: solid !important; border-color: var(--color-primary) !important; }
+.nv-vent-arrow:hover svg { stroke: var(--color-on-primary) !important; }

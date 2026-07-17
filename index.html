@@ -1,0 +1,310 @@
+<!-- @dsCard group="Marketing" viewport="1280x820" name="Homepage" subtitle="Node Ventures homepage — serif headlines, lines-and-boxes grid, scroll-driven node animation" -->
+<!-- @startingPoint section="Marketing" subtitle="Node Ventures homepage with scroll-driven node animation" viewport="1280x820" -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="ext-resource-dependency" content="assets/aecorn-logo.svg" data-resource-id="assets/aecorn-logo.svg" />
+  <meta name="ext-resource-dependency" content="assets/bluecanoe-logo.svg" data-resource-id="assets/bluecanoe-logo.svg" />
+  <meta name="ext-resource-dependency" content="assets/hero-sphere.png" data-resource-id="assets/hero-sphere.png" />
+  <meta name="ext-resource-dependency" content="assets/landlogic-logo.svg" data-resource-id="assets/landlogic-logo.svg" />
+  <meta name="ext-resource-dependency" content="assets/narr-1-float.jpg" data-resource-id="assets/narr-1-float.jpg" />
+  <meta name="ext-resource-dependency" content="assets/narr-2-silos.jpg" data-resource-id="assets/narr-2-silos.jpg" />
+  <meta name="ext-resource-dependency" content="assets/narr-3-network.jpg" data-resource-id="assets/narr-3-network.jpg" />
+  <meta name="ext-resource-dependency" content="assets/node-footer-wordmark.svg" data-resource-id="assets/node-footer-wordmark.svg" />
+  <meta name="ext-resource-dependency" content="assets/node-vector-12.svg" data-resource-id="assets/node-vector-12.svg" />
+  <meta name="ext-resource-dependency" content="assets/node-wordmark.svg" data-resource-id="assets/node-wordmark.svg" />
+  <meta name="ext-resource-dependency" content="assets/parcella-logo.svg" data-resource-id="assets/parcella-logo.svg" />
+  <meta name="ext-resource-dependency" content="logos/aeco.png" data-resource-id="logos/aeco.png" />
+  <meta name="ext-resource-dependency" content="logos/aecorn.png" data-resource-id="logos/aecorn.png" />
+  <meta name="ext-resource-dependency" content="logos/bluecanoe.png" data-resource-id="logos/bluecanoe.png" />
+  <meta name="ext-resource-dependency" content="logos/devnex.png" data-resource-id="logos/devnex.png" />
+  <meta name="ext-resource-dependency" content="logos/landlogic.png" data-resource-id="logos/landlogic.png" />
+  <meta name="ext-resource-dependency" content="logos/oneontario.png" data-resource-id="logos/oneontario.png" />
+  <meta name="ext-resource-dependency" content="logos/parcella.png" data-resource-id="logos/parcella.png" />
+  <meta name="ext-resource-dependency" content="photos/a1.jpg" data-resource-id="photos/a1.jpg" />
+  <meta name="ext-resource-dependency" content="photos/process-01-d.png" data-resource-id="photos/process-01-d.png" />
+  <meta name="ext-resource-dependency" content="photos/venture-landlogic-c.jpg" data-resource-id="photos/venture-landlogic-c.jpg" />
+  <meta name="ext-resource-dependency" content="photos/aecorn-mockup-c.jpg" data-resource-id="photos/aecorn-mockup-c.jpg" />
+    <title>Node Ventures — Building Canada's next generation of technology ventures</title>
+  <meta name="description" content="Node Ventures builds and backs ventures across Canada's most important domains — the built environment, national defence, enterprise AI, and community infrastructure — powered by a shared ecosystem of expertise, capital, and technology.">
+  <link rel="canonical" href="https://nodeventures.ca/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Node Ventures">
+  <meta property="og:title" content="Node Ventures — Building Canada's next generation of technology ventures">
+  <meta property="og:description" content="Node Ventures builds and backs ventures across Canada's most important domains — the built environment, national defence, enterprise AI, and community infrastructure — powered by a shared ecosystem of expertise, capital, and technology.">
+  <meta property="og:url" content="https://nodeventures.ca/">
+  <meta property="og:image" content="https://nodeventures.ca/domains/assets/hero-built-environment.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Node Ventures — Building Canada's next generation of technology ventures">
+  <meta name="twitter:description" content="Node Ventures builds and backs ventures across Canada's most important domains — the built environment, national defence, enterprise AI, and community infrastructure — powered by a shared ecosystem of expertise, capital, and technology.">
+  <meta name="twitter:image" content="https://nodeventures.ca/domains/assets/hero-built-environment.jpg">
+  <link rel="stylesheet" href="_ds/node-ventures-web-design-1fd7b864-4e07-4924-8b3d-4ad832a4f502/styles.css">
+  <link rel="stylesheet" href="shared/site-ui.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SUSE:wght@300;400;500;600;700&display=swap">
+  <style>:root { --font-display: "SUSE", "Helvetica Neue", Arial, sans-serif; }</style>
+  <style>
+    :root { --page-pad: 56px; --content-max: 1240px; --nv-rule: #ddd5c6; --color-canvas: #F9FAF7; }
+    * { box-sizing: border-box; }
+    .nv-domain-card:hover .nv-domain-title { color: var(--color-primary) !important; }
+    html, body { margin: 0; background: var(--color-canvas); }
+    body { font-family: var(--font-body); color: var(--color-ink); }
+
+    /* SUSE display headlines at weight 400, normal letter-spacing */
+    [style*="--font-display"] { font-weight: 400 !important; letter-spacing: normal !important; }
+
+    /* scroll-driven dark→light theme. JS interpolates these on scroll;
+       defaults below are the LIGHT end so no-JS renders a normal cream page. */
+    #nv-page {
+      --nv-bg: var(--color-canvas);
+      --nv-fg: var(--color-ink);
+      --nv-fg-soft: var(--color-body);
+      --nv-rule-color: var(--nv-rule);
+      background-color: var(--nv-bg);
+      /* full-bleed sections use width:100vw; when a vertical scrollbar is present
+         100vw exceeds the content width and pushes section padding off-screen on
+         the right. Clipping here contains that overshoot without creating a
+         scroll container (so the sticky nav keeps working). */
+      overflow-x: clip;
+    }
+
+    /* full-bleed band + centered inner column */
+    .nv-grid-band { position: relative; }
+    .nv-band-inner { max-width: var(--content-max); margin: 0 auto; padding-left: var(--page-pad); padding-right: var(--page-pad); }
+
+    /* faint vertical column rules — a fixed full-height overlay aligned to the
+       content column / focus-area box edges. Sits above section backgrounds but
+       below content (which is lifted to z-index:1), so rules read on dark + light. */
+    .nv-guides { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+    .nv-guides-inner { max-width: var(--content-max); height: 100%; margin: 0 auto; padding: 0 var(--page-pad); box-sizing: border-box; }
+    .nv-guides-col { height: 100%; border-left: 1px solid var(--nv-rule-color); border-right: 1px solid var(--nv-rule-color); }
+    /* section backgrounds sit at auto; content is lifted to 1 so it stays above the rules */
+    .nv-grid-band > * { position: relative; z-index: 1; }
+
+    /* Simplified heading scale — 4 roles. h1 hero · h2 section title · h3 supporting · h4 card title */
+    :root {
+      --h1-size: clamp(34px, 4.2vw, 51px); --h1-weight: 300; --h1-line: 1.05; --h1-track: -1.2px;
+      --h2-size: clamp(32px, 4vw, 48px);   --h2-weight: 400; --h2-line: 1.05; --h2-track: -0.9px;
+      --h3-size: clamp(24px, 2.8vw, 34px); --h3-weight: 400; --h3-line: 1.15; --h3-track: -0.5px;
+      --h4-size: 24px;                     --h4-weight: 400; --h4-line: 1.2;  --h4-track: -0.4px;
+      /* Body copy — 4 levels. lead intro · default · small · caption */
+      --body-lg-size: 18px; --body-lg-line: 1.42;
+      --body-size: 16px;    --body-line: 1.42;
+      --body-sm-size: 14px; --body-sm-line: 1.5;
+      --caption-size: 13px; --caption-line: 1.4;
+      /* Purple accent for text/eyebrows on dark surfaces (lightened brand purple) */
+      --color-primary-on-dark: #b9a9ff;
+      /* Neutrals promoted to tokens */
+      --color-surface-dark: var(--color-ink);  /* unified — dark surface uses the same black as ink */
+      --color-active-row: #f2f3ee;              /* subtle selected-row fill on cream */
+      --color-grid-line: #d7d4cc;               /* node-grid rules on light surfaces */
+      --color-grid-line-dark: #403d38;          /* node-grid rules on dark surfaces */
+    }
+
+    /* mono section tag: [03] OUR PARTNERS */
+    .nv-tag { font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-muted); margin: 0; }
+    /* boxed section label */
+    .nv-label { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--color-primary); font-family: var(--font-mono); font-weight: 500; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; padding: 0; }
+    .nv-label::before { content: ""; width: 9px; height: 9px; flex: none; background: var(--color-primary); }
+
+    /* text-link hover: highlight the text purple, no background fill */
+    .nv-link, .nv-link-plain { position: relative; display: inline-flex; vertical-align: bottom; }
+    .nv-link > span, .nv-link-plain > span { display: block; white-space: nowrap; transition: color 0.2s ease; }
+    .nv-link:hover > span, a:hover > .nv-link > span, button:hover > .nv-link > span,
+    .nv-link-plain:hover > span, a:hover > .nv-link-plain > span, li:hover > a > .nv-link-plain > span { color: var(--color-primary); }
+
+    /* Focus-area "Learn more" — filled tertiary button, underlined label, left-to-right fill sweep on hover */
+    .fa-learn { position: relative; overflow: hidden; display: inline-flex; align-self: flex-start; align-items: center; gap: 10px; padding: 6px 10px; text-decoration: none; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-primary); background: transparent; border: none; transition: color 0.4s cubic-bezier(0.76,0,0.24,1); }
+    .fa-learn::before { content: ""; position: absolute; inset: 0; background: var(--color-primary); transform: scaleX(0); transform-origin: left center; transition: transform 0.4s cubic-bezier(0.76,0,0.24,1); z-index: 0; }
+    .fa-learn:hover::before { transform: scaleX(1); }
+    .fa-learn:hover { color: var(--color-canvas); }
+    .fa-learn > span { position: relative; z-index: 1; text-decoration: underline; text-underline-offset: 3px; }
+
+    /* Primary (purple) buttons — darken to the DS press color on hover */
+    button[style*="--color-primary"]:not(:disabled):hover { background: var(--color-primary-active) !important; }
+
+    /* Dashed (secondary) buttons — fill with purple on hover */
+    button[style*="repeating-linear-gradient"]:not(:disabled):hover {
+      background: var(--color-primary) !important;
+      background-image: none !important;
+      color: var(--color-on-primary) !important;
+      border-color: var(--color-primary) !important;
+    }
+
+    /* Closing CTA — arrow fills solid purple on hover (matches secondary buttons) */
+    .cta-arrow-link:hover .cta-arrow { background: var(--color-primary) !important; border-style: solid !important; border-color: var(--color-primary) !important; }
+    .cta-arrow-link:hover .cta-arrow svg { stroke: var(--color-on-primary) !important; }
+    .nv-vent-arrow:hover { background: var(--color-primary) !important; border-style: solid !important; border-color: var(--color-primary) !important; }
+    .nv-vent-arrow:hover svg { stroke: var(--color-on-primary) !important; }
+
+    /* infinite logo marquee */
+    @keyframes nv-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .nv-marquee { animation: nv-marquee 40s linear infinite; }
+    @media (prefers-reduced-motion: reduce) { .nv-marquee { animation: none; } }
+
+    /* scroll cue bob */
+    @keyframes nv-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+    .nv-scrollcue { animation: nv-bob 1.6s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) { .nv-scrollcue { animation: none; } }
+
+    /* Hero: at mid-desktop widths the sphere's left edge reaches into the copy
+       column — narrow the copy there so text never overlaps the sphere. */
+    @media (min-width: 761px) and (max-width: 1180px) {
+      .nv-hero-inner > div { max-width: 360px !important; }
+      .nv-hero-inner > div p { max-width: 340px !important; }
+    }
+
+    /* ============ MOBILE ============ */
+    @media (max-width: 760px) {
+      :root { --page-pad: 20px; }
+
+      /* stack every desktop two-column layout */
+      .nv-transform-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+      .nv-2col { grid-template-columns: 1fr !important; }
+
+      /* grid-motif sections: hide the absolute node/rule decorations (they assume
+         two columns + full-bleed rules) and give the stacked cards simple borders */
+      .nv-gridlines { display: none !important; }
+      .nv-focus-boxes, .nv-cta-grid, .nv-howwe-grid {
+        border-top: 1px solid var(--color-grid-line);
+        border-bottom: 1px solid var(--color-grid-line);
+      }
+      .nv-focus-boxes > div, .nv-cta-grid > div {
+        min-height: auto !important; padding: 32px 0 !important;
+        border-bottom: 1px solid var(--color-grid-line);
+      }
+      .nv-focus-boxes > div:last-child, .nv-cta-grid > div:last-child { border-bottom: none; }
+      /* dark CTA boxes use the dark grid line */
+      .nv-cta-grid { border-color: var(--color-grid-line-dark); }
+      .nv-cta-grid > div { border-color: var(--color-grid-line-dark); }
+      /* focus-area decorative images are removed on mobile */
+      .nv-focus-img { display: none !important; }
+
+      /* Platform: drop the heavy triangle backdrop and the bottom fade so the
+         dashboard image reads cleanly with normal side padding */
+      .nv-platform-tri { display: none !important; }
+      .nv-platform-img { -webkit-mask-image: none !important; mask-image: none !important; }
+      .nv-platform-cards { grid-template-columns: 1fr !important; gap: 20px !important; }
+      .nv-feature-card > div { padding: 28px !important; }
+      .nv-feature-card > div:first-child { padding: 16px 16px 0 !important; }
+
+      /* Quote testimonial: arrows drop below the name/label block */
+      .nv-quote-foot { flex-direction: column !important; align-items: flex-start !important; gap: 18px !important; }
+
+      /* How we build: horizontal scroll-snap cards, image above text, one at a time */
+      .nv-howwe-scroll {
+        display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch; padding: 4px 0 20px;
+        margin-right: calc(-1 * var(--page-pad)); scroll-padding-left: 0;
+        scrollbar-width: none;
+      }
+      .nv-howwe-scroll::-webkit-scrollbar { display: none; }
+      .nv-howwe-card { scroll-snap-align: start; flex: 0 0 82%; }
+
+      /* Hero: static sphere on top (left-aligned), copy below */
+      .nv-hero-inner { flex-direction: column !important; align-items: flex-start !important;
+        gap: 8px; min-height: auto !important; padding-top: 44px !important; padding-bottom: 52px !important; }
+      .nv-hero-mobile-img { order: -1 !important; align-self: flex-start !important; margin-bottom: 20px; }
+
+      /* Footer: single column of link groups */
+      .nv-footer-grid { grid-template-columns: 1fr 1fr !important; gap: 28px !important; }
+      .nv-footer-grid > div:first-child { grid-column: 1 / -1; }
+      .nv-footer-box { padding: 32px 20px 0 !important; min-height: auto !important; }
+      .nv-footer-legal { left: 20px !important; }
+      .nv-vent-scroll { scrollbar-width: none; }
+      .nv-vent-scroll::-webkit-scrollbar { display: none; }
+
+      /* QuoteBlock: portrait photo (closer to desktop ratio), above the quote */
+      .nv-quote-row { flex-direction: column !important; gap: 24px !important; }
+      .nv-quote-photo { flex: 0 0 auto !important; width: 150px !important; height: 190px !important; align-self: flex-start !important; }
+
+      /* Domains: drop the illustration column + divider caps, show the list as plain boxes */
+      .nv-domain-media { display: none !important; }
+      .nv-domain-cap { display: none !important; }
+      .nv-domain-card { padding: 0 22px !important; min-height: auto !important; }
+      .nv-domain-body { padding: 24px 0 !important; }
+
+      /* Invest funds: horizontal scroll-snap cards, one at a time (like How we build) */
+      .nv-funds-boxes {
+        display: flex !important; grid-template-columns: none !important;
+        gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch; padding: 4px 0 20px;
+        margin-right: calc(-1 * var(--page-pad)); scroll-padding-left: 0;
+        scrollbar-width: none;
+      }
+      .nv-funds-boxes::-webkit-scrollbar { display: none; }
+      .nv-funds-boxes > div {
+        scroll-snap-align: start; flex: 0 0 82%; min-height: auto !important;
+        border: 1px solid var(--color-grid-line); padding: 20px !important;
+      }
+
+      /* Ventures: narrow the card image so it keeps a portrait-ish ratio (blank space to the right is fine) */
+      .nv-vent-img { height: auto !important; padding: 0 20px 24px !important; }
+      .nv-vent-img img { width: 60% !important; height: auto !important; aspect-ratio: 3 / 4; object-position: left top; }
+
+      /* Narrative scroll-pin section stacks */
+      .nv-narr-grid { grid-template-columns: 1fr !important; grid-template-rows: 42vh 58vh !important; gap: 0 !important; align-items: stretch !important; }
+      .nv-narr-canvas { order: -1; height: 100% !important; }
+      .nv-narr-text { height: 100% !important; }
+      .nv-narr-track { width: 78% !important; }
+      .nv-narr-beats { top: 38% !important; }
+
+      /* tighten major band padding on phones */
+      .nv-grid-band { padding-left: 0; padding-right: 0; }
+    }
+  </style>
+  <script src="vendor/react.production.min.js"></script>
+  <script src="vendor/react-dom.production.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="_ds/node-ventures-web-design-1fd7b864-4e07-4924-8b3d-4ad832a4f502/_ds_bundle.js"></script>
+  <script src="vendor/three.min.js"></script>
+  <script src="pages/NodeField.js"></script>
+  <script src="pages/sphere.js"></script>
+  <script src="pages/image-slot.js"></script>
+  <script>window.__siteBase = "";</script>
+  <script src="shared/useMobile.js"></script>
+  <script src="shared/site-links.js"></script>
+  <script src="shared/SiteNav.js"></script>
+  <script src="shared/HeroDots.js"></script>
+  <script src="pages/Hero.js"></script>
+  <script src="pages/TrustedBy.js"></script>
+  <script src="pages/Narrative.js"></script>
+  <script src="pages/ContributeGraphic.js"></script>
+  <script src="pages/Platform.js"></script>
+  <script src="pages/FocusAreas.js"></script>
+  <script src="shared/QuotePanel.js"></script>
+  <script src="pages/QuoteBlock.js"></script>
+  <script src="pages/Funds.js"></script>
+  <script src="pages/Transform.js"></script>
+  <script src="pages/HowWeBuild.js"></script>
+  <script src="pages/Ventures.js"></script>
+  <script src="pages/Closing.js"></script>
+  <script src="shared/SiteFooter.js"></script>
+  <script src="pages/App.js"></script>
+  <script>
+    ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(window.App));
+  </script>
+
+  <template id="__bundler_thumbnail" data-bg-color="#181715">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="800" fill="#181715"/>
+      <g transform="translate(760 400)">
+        <g stroke="#faf9f5" stroke-width="1.4" fill="none" opacity="0.5">
+          <circle cx="0" cy="0" r="150"/>
+          <path d="M-120 -70 L60 -140 L150 60 L-30 150 L-140 40 Z M60 -140 L150 60 M-120 -70 L-30 150 M0 -150 L0 150 M-150 0 L150 0"/>
+        </g>
+        <circle cx="0" cy="0" r="58" fill="#7453ff"/>
+        <g fill="#faf9f5">
+          <circle cx="60" cy="-140" r="7"/><circle cx="150" cy="60" r="7"/>
+          <circle cx="-120" cy="-70" r="7"/><circle cx="-30" cy="150" r="7"/>
+          <circle cx="-140" cy="40" r="7"/><circle cx="0" cy="-150" r="6"/>
+        </g>
+      </g>
+      <text x="80" y="380" font-family="Georgia, serif" font-size="64" fill="#faf9f5">Node Ventures</text>
+    </svg>
+  </template>
+</body>
+</html>

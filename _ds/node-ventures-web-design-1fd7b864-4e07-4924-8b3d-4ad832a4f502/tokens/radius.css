@@ -1,0 +1,14 @@
+/* ── Border radius ─────────────────────────────────────────────────────
+   Square by default. Corners are never rounded except a full pill / circle.
+   The xs–xl steps are kept as named hooks but resolve to 0 — only `pill`
+   and `full` carry radius. */
+
+:root {
+  --radius-xs:   0;      /* square */
+  --radius-sm:   0;      /* square */
+  --radius-md:   0;      /* buttons, inputs, tabs — square */
+  --radius-lg:   0;      /* cards — square */
+  --radius-xl:   0;      /* hero / marquee — square */
+  --radius-pill: 9999px; /* badge pills, NEW tags */
+  --radius-full: 9999px; /* avatars, circular icon buttons */
+}

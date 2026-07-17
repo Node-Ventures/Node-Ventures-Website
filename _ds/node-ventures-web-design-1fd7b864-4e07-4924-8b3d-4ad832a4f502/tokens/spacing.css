@@ -1,0 +1,17 @@
+/* ── Spacing ───────────────────────────────────────────────────────────
+   Base unit 4px. Section rhythm is 96px; card padding stays generous. */
+
+:root {
+  --space-xxs: 4px;
+  --space-xs:  8px;
+  --space-sm:  12px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  32px;
+  --space-xxl: 48px;
+  --space-section: 96px;
+
+  /* ----- Layout ----- */
+  --layout-max-width: 1200px;
+  --layout-cta-pad:   64px; /* large dark / accent pre-footer bands */
+}

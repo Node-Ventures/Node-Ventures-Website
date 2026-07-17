@@ -1,0 +1,9 @@
+/* ── Lines ─────────────────────────────────────────────────────────────
+   Dashed lines are a core graphic motif. The native CSS `dashed` keyword
+   can't control dash length, so dashed strokes are drawn with repeating
+   gradients sized by these tokens. Tune the dash/gap here once. */
+
+:root {
+  --line-dash: 3px;  /* dash length */
+  --line-step: 5px;  /* dash + gap (gap = 2px) */
+}

@@ -1,0 +1,9 @@
+/* ── Fonts ─────────────────────────────────────────────────────────────
+   The brand's licensed faces (Copernicus / Tiempos Headline for display,
+   StyreneB for body) are not publicly available. Open-source substitutes:
+     · Display sans  → SUSE          (geometric-humanist sans, display weight 400)
+     · Body sans     → Hanken Grotesk (humanist grotesque, warm — screen-optimised)
+     · Mono          → Space Mono   (code, labels, captions — distinctive grotesque mono)
+   Swap these @font-face declarations if the real binaries are provided. */
+
+@import url("https://fonts.googleapis.com/css2?family=SUSE:wght@300;400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap");

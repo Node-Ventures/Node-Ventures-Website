@@ -1,0 +1,54 @@
+/* ── Colors ────────────────────────────────────────────────────────────
+   Cream + purple + dark-navy trinity. Never introduce a fourth surface tone.
+   Base values first, then semantic aliases that components reference. */
+
+:root {
+  /* ----- Brand & accent ----- */
+  --color-primary:           #7453ff; /* MAIN ACCENT — electric purple (matches the logo mark). CTAs, accent callouts, wordmark accent */
+  --color-primary-active:    #5a34e0; /* press / darker variant */
+  --color-primary-light:     #b9a9ff; /* light-purple — eyebrows / accents on dark surfaces where full purple would vibrate */
+  --color-primary-disabled:  #e6dfd8; /* desaturated cream-tinted disabled */
+
+  /* ----- Surfaces ----- */
+  --color-canvas:                #F9FAF7; /* default page floor — cool near-white, never a stark pure white */
+  --color-surface-soft:          #F2F3EE; /* soft band backgrounds, dividers — one step down from canvas */
+  --color-surface-card:          #EAEBE4; /* feature / content cards — two steps down */
+  --color-surface-cream-strong:  #DFE1D8; /* selected tabs, emphasized bands */
+  --color-surface-dark:          #141413; /* code mockups, model cards, footer, hero — UNIFIED with --color-ink (same warm black). Elevated/soft below sit one step lighter. */
+  --color-surface-dark-elevated: #252320; /* elevated cards inside dark bands */
+  --color-surface-dark-soft:     #1f1e1b; /* code-block backgrounds inside dark cards */
+
+  /* ----- Hairlines ----- */
+  --color-hairline:      #e6dfd8; /* 1px border on cream surfaces */
+  --color-hairline-soft: #ebe6df; /* barely-visible same-band divider */
+  --color-rule:          #ddd5c6; /* structural grid / column rules — heavier than a hairline */
+  --color-grid-line:      #d7d4cc; /* solid node-grid rules + triangle nodes on light surfaces */
+  --color-grid-line-dark: #403d38; /* the same node-grid on dark surfaces */
+
+  /* ----- Text ----- */
+  --color-ink:          #141413; /* headlines + primary text — warm near-black */
+  --color-body-strong:  #252523; /* lead text, emphasized paragraphs */
+  --color-body:         #3d3d3a; /* default running text */
+  --color-muted:        #6c6a64; /* sub-headings, breadcrumbs */
+  --color-muted-soft:   #8e8b82; /* captions, fine print, copyright */
+  --color-on-primary:   #ffffff; /* text on purple */
+  --color-primary-on-dark: var(--color-primary-light); /* the purple to use ON dark surfaces (alias of --color-primary-light) */
+  --color-on-dark:      #faf9f5; /* cream-tinted white on dark surfaces */
+  --color-on-dark-soft: #a09d96; /* secondary text on dark */
+  --color-active-row:   #f2f3ee; /* selected / active row fill on CREAM surfaces (menus, lists, tables) — same as --color-surface-soft */
+
+  /* ----- Semantic ----- */
+  --color-success: #5db872;
+  --color-warning: #d4a017;
+  --color-error:   #c64545;
+
+  /* ----- Semantic aliases (prefer these in components) ----- */
+  --surface-page:        var(--color-canvas);
+  --surface-card:        var(--color-surface-card);
+  --surface-dark:        var(--color-surface-dark);
+  --text-heading:        var(--color-ink);
+  --text-body:           var(--color-body);
+  --text-muted:          var(--color-muted);
+  --border-hairline:     var(--color-hairline);
+  --accent:              var(--color-primary);
+}
