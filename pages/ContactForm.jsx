@@ -1,10 +1,14 @@
 // ContactForm — one form for general questions AND investment inquiries.
 // First/last name + email + message required; phone + company optional;
-// inquiry-type checkboxes. On submit it composes an email to
-// admin@nodeventures.ca and swaps the form for a thank-you panel.
-// NOTE (standalone caveat): with no backend this hands off to the visitor's
-// mail client via mailto:. A production deploy should POST to a form service
-// or serverless endpoint that delivers to admin@nodeventures.ca instead.
+// inquiry-type checkboxes. On submit it POSTs to Netlify Forms and swaps the
+// form for a thank-you panel.
+// NETLIFY: this form is rendered by React at runtime, so Netlify's deploy-time
+// bot can't see it. Detection is handled by the hidden static <form name="contact">
+// in contact.html; here we POST the same fields (form-urlencoded, incl.
+// form-name=contact) to "/". Field names MUST stay in sync with that hidden form.
+// Configure the email notification to admin@nodeventures.ca in the Netlify
+// dashboard (Forms → Form notifications). Submissions only reach Netlify on a
+// deployed Netlify site — a local static server will no-op the POST (handled).
 const NV_FIELD_BORDER = "var(--color-muted)"; // darker neutral — WCAG-legible on cream
 const NV_FIELD_FILL = "var(--color-canvas)";  // light cream fill
 
@@ -46,24 +50,31 @@ function ContactForm() {
   const toggle = (t) => setTypes((cur) => cur.includes(t) ? cur.filter((x) => x !== t) : [...cur, t]);
   const reset = () => { setForm(INITIAL); setTypes([]); setSent(false); };
 
+  // Netlify wants application/x-www-form-urlencoded with a form-name field.
+  const encode = (data) =>
+    Object.keys(data).map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(data[k])).join("&");
+
   const submit = (e) => {
     e.preventDefault();
-    const lines = [
-      `Name: ${form.firstName} ${form.lastName}`.trim(),
-      `Email: ${form.email}`,
-      form.phone ? `Phone: ${form.phone}` : null,
-      form.company ? `Company: ${form.company}` : null,
-      `Inquiry type: ${types.length ? types.join(", ") : "Not specified"}`,
-      "",
-      "Message:",
-      form.message,
-    ].filter((l) => l !== null).join("\n");
-    const subject = `Node Ventures inquiry${types.length ? " — " + types.join(", ") : ""}`;
-    const mailto = `mailto:admin@nodeventures.ca?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines)}`;
+    const payload = {
+      "form-name": "contact",
+      "bot-field": "", // honeypot — real visitors leave this empty
+      firstName: form.firstName,
+      lastName: form.lastName,
+      email: form.email,
+      phone: form.phone,
+      company: form.company,
+      inquiryType: types.length ? types.join(", ") : "",
+      message: form.message,
+    };
     setSent(true);
-    // Open the visitor's mail client after the thank-you paints. Guarded so a
-    // blocked/absent handler never hangs the page.
-    setTimeout(() => { try { window.open(mailto, "_blank"); } catch (err) { /* no mail handler */ } }, 0);
+    // POST to Netlify Forms. Guarded so a local/static preview (no Netlify
+    // backend) still shows the thank-you panel instead of erroring.
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode(payload),
+    }).catch(() => { /* no backend (e.g. local preview) — thank-you still shown */ });
   };
 
   const Check = ({ label }) => {
