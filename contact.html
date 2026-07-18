@@ -77,6 +77,21 @@
       <circle cx="50" cy="48" r="3.4" fill="#7453ff"/>
     </svg>
   </template>
+  <!-- Netlify Forms detection form. Netlify parses forms from static HTML at
+       DEPLOY time; the visible form is rendered by React at runtime, which the
+       build bot can't see. This hidden form is what registers "contact" with
+       Netlify. Its field names MUST match the payload posted by
+       pages/ContactForm.jsx (see the fetch() in submit()). -->
+  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="firstName" />
+    <input type="text" name="lastName" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="text" name="company" />
+    <input type="text" name="inquiryType" />
+    <textarea name="message"></textarea>
+    <input type="text" name="bot-field" />
+  </form>
   <div id="root"></div>
   <script src="_ds/node-ventures-web-design-1fd7b864-4e07-4924-8b3d-4ad832a4f502/_ds_bundle.js"></script>
   <script>window.__siteBase = "";</script>
