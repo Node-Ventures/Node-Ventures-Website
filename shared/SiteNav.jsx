@@ -118,7 +118,7 @@ function SiteNav() {
       backgroundSize: "100% 1px", backgroundPosition: "bottom", backgroundRepeat: "no-repeat",
     }}>
       <a href={href("Home")} style={{ display: "inline-flex", alignItems: "center", textDecoration: "none", flex: "none" }} aria-label="Node Ventures home">
-        <img src={(window.__resources && window.__resources["assets/node-wordmark.svg"]) || "assets/node-wordmark.svg"} alt="Node Ventures" style={{ height: 22, width: "auto", display: "block" }} />
+        <img src={(window.__resources && window.__resources["assets/node-wordmark.svg"]) || "assets/node-wordmark.svg"} alt="Node Ventures" style={{ height: 17.6, width: "auto", display: "block" }} />
       </a>
 
       <ul style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", display: "flex", gap: 22, listStyle: "none", margin: 0, padding: 0 }}>
