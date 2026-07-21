@@ -135,7 +135,7 @@ function DomainPage({
       justifyContent: "center"
     }
   }, /*#__PURE__*/React.createElement("a", {
-    href: LOGIN,
+    href: ctaHref(hero.primaryCta || "Become a contributor"),
     style: {
       textDecoration: "none"
     }

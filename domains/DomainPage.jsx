@@ -74,7 +74,7 @@ function DomainPage({ data }) {
               {hero.body}
             </p>
             <div style={{ display: "flex", gap: 12, marginTop: 30, flexWrap: "wrap", justifyContent: "center" }}>
-              <a href={LOGIN} style={{ textDecoration: "none" }}><Button variant="primary" size="lg">{hero.primaryCta || "Become a contributor"}</Button></a>
+              <a href={ctaHref(hero.primaryCta || "Become a contributor")} style={{ textDecoration: "none" }}><Button variant="primary" size="lg">{hero.primaryCta || "Become a contributor"}</Button></a>
               {hero.secondaryCta === null ? null : <a href={CONTACT} style={{ textDecoration: "none" }}><Button variant="secondary" size="lg" style={ctaOutline}>{hero.secondaryCta || "Talk to us"}</Button></a>}
             </div>
           </div>

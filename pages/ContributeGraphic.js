@@ -109,38 +109,41 @@ function ContributeGraphic() {
   }, "N")));
 }
 
-// InvestGraphic — NOTE: the source project references <InvestGraphic /> in
-// Platform.jsx but ships no definition for it (only ContributeGraphic exists in
-// pages/). This on-brand placeholder keeps the homepage from crashing: an
-// ascending dashed-outline bar chart with the purple "N" hub, matching the
-// Contribute card's container conventions (aspectRatio 400/228, same palette).
+// InvestGraphic — animated bar chart for the Invest card. A dashed grid
+// (radially masked so it's solid in the center and fades at the top/sides)
+// sits behind three solid bars that rise from the baseline in sequence,
+// hold, then collapse, looping forever.
 function InvestGraphic() {
-  const C = 200,
-    HUB = 22;
-  const purple = "#7453ff";
-  const line = "rgba(20,20,19,0.13)";
-  // ascending bars beneath a rising trend line
+  const purple = "#7453ff",
+    umber = "#c2922e",
+    ink = "#141413";
+  const gridColor = "rgba(20,20,19,0.22)";
+  const baseY = 283,
+    topY = 125,
+    x0 = 97,
+    x1 = 277;
+  const cx = (x0 + x1) / 2;
+  const rows = [];
+  for (let y = baseY - 18; y >= topY; y -= 18) rows.push(y);
+  const topRow = rows[rows.length - 1];
+  const cols = [];
+  for (let x = x0; x <= x1; x += 18) cols.push(x);
   const bars = [{
-    x: 96,
-    h: 34
+    x: 151,
+    h: 42,
+    color: ink,
+    delay: 0
   }, {
-    x: 132,
-    h: 54
+    x: 187,
+    h: 74,
+    color: umber,
+    delay: 0.8
   }, {
-    x: 168,
-    h: 72
-  }, {
-    x: 204,
-    h: 96
-  }, {
-    x: 240,
-    h: 120
-  }, {
-    x: 276,
-    h: 150
+    x: 223,
+    h: 108,
+    color: purple,
+    delay: 1.6
   }];
-  const baseY = 262;
-  const trend = bars.map(b => `${b.x + 14},${baseY - b.h - 10}`).join(" ");
   return /*#__PURE__*/React.createElement("div", {
     style: {
       position: "relative",
@@ -148,56 +151,94 @@ function InvestGraphic() {
       aspectRatio: "400 / 228",
       overflow: "hidden"
     }
-  }, /*#__PURE__*/React.createElement("svg", {
+  }, /*#__PURE__*/React.createElement("style", null, `
+        @keyframes nvBarRise {
+          0% { transform: scaleY(0); }
+          16% { transform: scaleY(1); }
+          84% { transform: scaleY(1); }
+          100% { transform: scaleY(0); }
+        }
+      `), /*#__PURE__*/React.createElement("svg", {
     viewBox: "0 75 400 228",
     width: "100%",
     height: "100%",
     style: {
       display: "block"
     }
-  }, /*#__PURE__*/React.createElement("line", {
-    x1: "80",
+  }, /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("radialGradient", {
+    id: "investGridFade",
+    gradientUnits: "userSpaceOnUse",
+    cx: "0",
+    cy: "0",
+    r: "1",
+    gradientTransform: `translate(${cx} ${baseY}) scale(112 150)`
+  }, /*#__PURE__*/React.createElement("stop", {
+    offset: "0",
+    stopColor: "#fff",
+    stopOpacity: "1"
+  }), /*#__PURE__*/React.createElement("stop", {
+    offset: "0.55",
+    stopColor: "#fff",
+    stopOpacity: "1"
+  }), /*#__PURE__*/React.createElement("stop", {
+    offset: "1",
+    stopColor: "#fff",
+    stopOpacity: "0"
+  })), /*#__PURE__*/React.createElement("mask", {
+    id: "investGridMask",
+    maskUnits: "userSpaceOnUse",
+    x: "0",
+    y: "75",
+    width: "400",
+    height: "228"
+  }, /*#__PURE__*/React.createElement("rect", {
+    x: "0",
+    y: "75",
+    width: "400",
+    height: "228",
+    fill: "url(#investGridFade)"
+  }))), /*#__PURE__*/React.createElement("g", {
+    mask: "url(#investGridMask)"
+  }, rows.map(y => /*#__PURE__*/React.createElement("line", {
+    key: "row" + y,
+    x1: x0,
+    y1: y,
+    x2: x1,
+    y2: y,
+    stroke: gridColor,
+    strokeWidth: "0.8",
+    strokeDasharray: "2 1"
+  })), cols.map(x => /*#__PURE__*/React.createElement("line", {
+    key: "col" + x,
+    x1: x,
     y1: baseY,
-    x2: "320",
+    x2: x,
+    y2: topRow,
+    stroke: gridColor,
+    strokeWidth: "0.8",
+    strokeDasharray: "2 1"
+  }))), /*#__PURE__*/React.createElement("line", {
+    x1: x0,
+    y1: baseY,
+    x2: x1,
     y2: baseY,
-    stroke: line,
-    strokeWidth: "0.8"
-  }), bars.map((b, i) => /*#__PURE__*/React.createElement("rect", {
-    key: "b" + i,
-    x: b.x,
+    stroke: gridColor,
+    strokeWidth: "0.8",
+    strokeDasharray: "2 1"
+  }), bars.map(b => /*#__PURE__*/React.createElement("rect", {
+    key: b.x,
+    x: b.x - 6.5,
     y: baseY - b.h,
-    width: "28",
+    width: "13",
     height: b.h,
-    fill: i === bars.length - 1 ? purple : "#F9FAF7",
-    stroke: i === bars.length - 1 ? purple : "rgba(0,0,0,0.42)",
-    strokeWidth: "1",
-    strokeDasharray: i === bars.length - 1 ? "0" : "2 1"
-  })), /*#__PURE__*/React.createElement("polyline", {
-    points: trend,
-    fill: "none",
-    stroke: purple,
-    strokeWidth: "1.4"
-  }), bars.map((b, i) => /*#__PURE__*/React.createElement("circle", {
-    key: "p" + i,
-    cx: b.x + 14,
-    cy: baseY - b.h - 10,
-    r: "2.6",
-    fill: purple
-  })), /*#__PURE__*/React.createElement("circle", {
-    cx: C,
-    cy: 130,
-    r: HUB,
-    fill: purple
-  }), /*#__PURE__*/React.createElement("text", {
-    x: C,
-    y: 131,
-    textAnchor: "middle",
-    dominantBaseline: "central",
-    fill: "#fff",
-    fontFamily: "var(--font-display)",
-    fontSize: "24",
-    fontWeight: "500"
-  }, "N")));
+    fill: b.color,
+    style: {
+      transformBox: "fill-box",
+      transformOrigin: "bottom",
+      animation: "nvBarRise 7s cubic-bezier(0.4,0,0.2,1) infinite",
+      animationDelay: `${b.delay}s`
+    }
+  }))));
 }
 Object.assign(window, {
   ContributeGraphic,
