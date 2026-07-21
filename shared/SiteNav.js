@@ -278,7 +278,7 @@ function SiteNav() {
     src: window.__resources && window.__resources["assets/node-wordmark.svg"] || "assets/node-wordmark.svg",
     alt: "Node Ventures",
     style: {
-      height: 22,
+      height: 17.6,
       width: "auto",
       display: "block"
     }
