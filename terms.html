@@ -1,0 +1,83 @@
+<!-- @dsCard group="Marketing" viewport="1280x900" name="Terms of Use" subtitle="Text-only legal page — centered reading column on cream" -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <title>Terms of Use — Node Ventures</title>
+  <meta name="description" content="The terms and conditions governing access to and use of the Node Ventures Portal.">
+  <link rel="canonical" href="https://nodeventures.ca/terms.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Node Ventures">
+  <meta property="og:title" content="Terms of Use — Node Ventures">
+  <meta property="og:description" content="The terms and conditions governing use of the Node Ventures Portal.">
+  <meta property="og:url" content="https://nodeventures.ca/terms.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Terms of Use — Node Ventures">
+  <meta name="twitter:description" content="The terms and conditions governing use of the Node Ventures Portal.">
+  <link rel="stylesheet" href="_ds/node-ventures-web-design-1fd7b864-4e07-4924-8b3d-4ad832a4f502/styles.css">
+  <link rel="stylesheet" href="shared/site-ui.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SUSE:wght@300;400;500;600;700&display=swap">
+  <style>:root { --font-display: "SUSE", "Helvetica Neue", Arial, sans-serif; }</style>
+  <style>
+    :root { --page-pad: 56px; --content-max: 1240px; --color-canvas: #F9FAF7; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: var(--color-canvas); }
+    body { font-family: var(--font-body); color: var(--color-ink); }
+    [style*="--font-display"] { font-weight: 400 !important; letter-spacing: normal !important; }
+    #nv-page { overflow-x: clip; position: relative; }
+    #nv-page::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background-image: radial-gradient(rgba(20,20,19,0.09) 1px, transparent 1.4px); background-size: 13px 13px; }
+    .nv-band-inner { max-width: var(--content-max); margin: 0 auto; padding-left: var(--page-pad); padding-right: var(--page-pad); }
+    :root {
+      --h1-size: clamp(34px, 4.2vw, 51px); --h1-weight: 300; --h1-line: 1.05; --h1-track: -1.2px;
+      --body-lg-size: 18px; --body-lg-line: 1.42;
+      --body-size: 16px;    --body-line: 1.42;
+      --body-sm-size: 14px; --body-sm-line: 1.5;
+      --caption-size: 13px; --caption-line: 1.4;
+      --color-primary-on-dark: #b9a9ff;
+      --color-surface-dark: var(--color-ink);
+      --color-grid-line: #d7d4cc;
+      --color-grid-line-dark: #403d38;
+    }
+    a { color: var(--color-primary); text-decoration: none; }
+    a:hover { color: var(--color-primary-active); }
+    .nv-link, .nv-link-plain { position: relative; display: inline-flex; vertical-align: bottom; }
+    .nv-link > span, .nv-link-plain > span { display: block; white-space: nowrap; transition: color 0.2s ease; }
+    .nv-link:hover > span, .nv-link-plain:hover > span { color: var(--color-primary); }
+    @media (max-width: 760px) {
+      :root { --page-pad: 20px; }
+      .nv-footer-box { padding: 32px 20px 0 !important; min-height: auto !important; }
+      .nv-footer-legal { left: 20px !important; }
+    }
+  </style>
+  <script src="vendor/react.production.min.js"></script>
+  <script src="vendor/react-dom.production.min.js"></script>
+</head>
+<body>
+  <template id="__bundler_thumbnail">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="100" fill="#141413"/>
+      <g fill="none" stroke="#b9a9ff" stroke-width="2.4" stroke-linejoin="round">
+        <path d="M50 30 L66 39 L66 58 L50 67 L34 58 L34 39 Z"/>
+        <path d="M50 30 L50 48 L66 39 M50 48 L34 39 M50 48 L50 67"/>
+      </g>
+      <circle cx="50" cy="48" r="3.4" fill="#7453ff"/>
+    </svg>
+  </template>
+  <div id="root"></div>
+  <script src="_ds/node-ventures-web-design-1fd7b864-4e07-4924-8b3d-4ad832a4f502/_ds_bundle.js"></script>
+  <script>window.__siteBase = "";</script>
+  <script src="shared/useMobile.js"></script>
+  <script src="shared/site-links.js"></script>
+  <script src="shared/NodeLogo.js"></script>
+  <script src="shared/SiteNav.js"></script>
+  <script src="shared/SiteFooter.js"></script>
+  <script src="shared/LegalPage.js"></script>
+  <script src="pages/TermsPage.js"></script>
+  <script>
+    ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(window.TermsPage));
+  </script>
+</body>
+</html>

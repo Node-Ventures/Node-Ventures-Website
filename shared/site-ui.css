@@ -34,6 +34,19 @@ button[style*="repeating-linear-gradient"]:not(:disabled):hover {
   border-color: var(--color-primary) !important;
 }
 
+/* ---- legal pages (Privacy, Terms): centered reading column ---- */
+.nv-legal { max-width: 720px; margin: 0 auto; }
+.nv-legal-eff { font-family: var(--font-mono); font-size: var(--caption-size); color: var(--color-body); margin: 14px 0 0; }
+.nv-legal-body { margin-top: 36px; }
+.nv-legal-body h2 { font-family: var(--font-display); font-weight: 400; font-size: 22px; line-height: 1.2; letter-spacing: -0.3px; color: var(--color-ink); margin: 40px 0 0; }
+.nv-legal-body h2:first-child { margin-top: 0; }
+.nv-legal-body p { font-family: var(--font-body); font-size: var(--body-size); line-height: 1.6; color: var(--color-body); margin: 14px 0 0; text-wrap: pretty; }
+.nv-legal-body ul { margin: 12px 0 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
+.nv-legal-body li { font-family: var(--font-body); font-size: var(--body-size); line-height: 1.55; color: var(--color-body); }
+.nv-legal-body strong { color: var(--color-ink); font-weight: 600; }
+.nv-legal-body a { color: var(--color-primary); text-decoration: none; }
+.nv-legal-body a:hover { color: var(--color-primary-active); }
+
 /* ---- circular / square icon arrow buttons ---- */
 .cta-arrow-link:hover .cta-arrow { background: var(--color-primary) !important; border-style: solid !important; border-color: var(--color-primary) !important; }
 .cta-arrow-link:hover .cta-arrow svg { stroke: var(--color-on-primary) !important; }

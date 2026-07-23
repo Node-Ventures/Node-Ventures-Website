@@ -41,6 +41,7 @@ function NvField({ label, required, hint, type = "text", value, onChange, name, 
 
 function ContactForm() {
   const { Button } = window.NodeVenturesDesignSystem_1fd7b8;
+  const href = window.NV_HREF || (() => "#");
   const INQUIRIES = ["General inquiry", "Joining a venture", "Starting a venture", "Venture fund", "Debt fund", "Asset fund"];
   const INITIAL = { firstName: "", lastName: "", email: "", phone: "", company: "", message: "" };
   const [form, setForm] = React.useState(INITIAL);
@@ -135,7 +136,7 @@ function ContactForm() {
       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
         <NvField label="Message" required textarea rows={6} name="message" value={form.message} onChange={set("message")} />
         <p style={{ margin: 0, fontFamily: "var(--font-body)", fontSize: 12, lineHeight: 1.5, color: "var(--color-muted)" }}>
-          <span style={{ color: "var(--color-primary)" }}>*</span> Required fields. By sending this form, you agree to our handling of your information as described in our <a href="#">privacy policy</a>.
+          <span style={{ color: "var(--color-primary)" }}>*</span> Required fields. By sending this form, you agree to our handling of your information as described in our <a href={href("Privacy")}>privacy policy</a>.
         </p>
       </div>
 

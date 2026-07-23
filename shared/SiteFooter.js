@@ -153,7 +153,7 @@ function SiteFooter() {
       color: "var(--color-on-dark-soft)"
     }
   }, "|"), /*#__PURE__*/React.createElement("a", {
-    href: "#",
+    href: href("Privacy"),
     style: {
       fontFamily: "var(--font-body)",
       fontSize: "var(--caption-size)",
@@ -169,7 +169,7 @@ function SiteFooter() {
       color: "var(--color-on-dark-soft)"
     }
   }, "|"), /*#__PURE__*/React.createElement("a", {
-    href: "#",
+    href: href("Terms"),
     style: {
       fontFamily: "var(--font-body)",
       fontSize: "var(--caption-size)",

@@ -88,6 +88,7 @@ function ContactForm() {
   const {
     Button
   } = window.NodeVenturesDesignSystem_1fd7b8;
+  const href = window.NV_HREF || (() => "#");
   const INQUIRIES = ["General inquiry", "Joining a venture", "Starting a venture", "Venture fund", "Debt fund", "Asset fund"];
   const INITIAL = {
     firstName: "",
@@ -110,6 +111,7 @@ function ContactForm() {
     setTypes([]);
     setSent(false);
   };
+
   // Netlify wants application/x-www-form-urlencoded with a form-name field.
   const encode = data => Object.keys(data).map(k => encodeURIComponent(k) + "=" + encodeURIComponent(data[k])).join("&");
   const submit = e => {
@@ -317,7 +319,7 @@ function ContactForm() {
       color: "var(--color-primary)"
     }
   }, "*"), " Required fields. By sending this form, you agree to our handling of your information as described in our ", /*#__PURE__*/React.createElement("a", {
-    href: "#"
+    href: href("Privacy")
   }, "privacy policy"), ".")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Button, {
     variant: "primary",
     size: "lg",

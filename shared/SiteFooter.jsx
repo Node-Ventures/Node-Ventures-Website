@@ -41,9 +41,9 @@ function SiteFooter() {
         <div className="nv-footer-legal" style={{ position: "absolute", left: 56, bottom: 28, display: "flex", gap: 12, alignItems: "baseline", zIndex: 2 }}>
           <span style={{ fontFamily: "var(--font-body)", fontSize: "var(--caption-size)", color: "var(--color-on-dark-soft)" }}>© 2026 Node Ventures, Inc.</span>
           <span style={{ fontFamily: "var(--font-body)", fontSize: "var(--caption-size)", color: "var(--color-on-dark-soft)" }}>|</span>
-          <a href="#" style={{ fontFamily: "var(--font-body)", fontSize: "var(--caption-size)", color: "var(--color-on-dark-soft)", textDecoration: "none" }}>{<Hover t="Privacy" />}</a>
+          <a href={href("Privacy")} style={{ fontFamily: "var(--font-body)", fontSize: "var(--caption-size)", color: "var(--color-on-dark-soft)", textDecoration: "none" }}>{<Hover t="Privacy" />}</a>
           <span style={{ fontFamily: "var(--font-body)", fontSize: "var(--caption-size)", color: "var(--color-on-dark-soft)" }}>|</span>
-          <a href="#" style={{ fontFamily: "var(--font-body)", fontSize: "var(--caption-size)", color: "var(--color-on-dark-soft)", textDecoration: "none" }}>{<Hover t="Terms" />}</a>
+          <a href={href("Terms")} style={{ fontFamily: "var(--font-body)", fontSize: "var(--caption-size)", color: "var(--color-on-dark-soft)", textDecoration: "none" }}>{<Hover t="Terms" />}</a>
         </div>
       </div>
       </div>

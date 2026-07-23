@@ -14,6 +14,8 @@
     "Enterprise AI": "domains/enterprise-ai.html",
     "Community infrastructure": "domains/community-infrastructure.html",
     "Contact": "contact.html",
+    "Privacy": "privacy.html",
+    "Terms": "terms.html",
     // External app — login / start contributing. Absolute URL, returned as-is.
     "Log in": "http://app.nodeventures.ca/login",
     "Start contributing": "http://app.nodeventures.ca/login"
