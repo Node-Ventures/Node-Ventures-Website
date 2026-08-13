@@ -1,3 +1,4 @@
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 // SiteFooter — dark, boxed link columns, dot-marks in the corner.
 // Link targets come from the shared site-links registry (window.NV_HREF).
 function SiteFooter() {
@@ -118,15 +119,19 @@ function SiteFooter() {
     key: line
   }, line))) : /*#__PURE__*/React.createElement("li", {
     key: l
-  }, /*#__PURE__*/React.createElement("a", {
-    href: href(l),
+  }, /*#__PURE__*/React.createElement("a", _extends({
+    href: href(l)
+  }, href(l).indexOf("mailto:") === 0 ? {
+    target: "_blank",
+    rel: "noopener noreferrer"
+  } : {}, {
     style: {
       fontFamily: "var(--font-body)",
       fontSize: "var(--body-sm-size)",
       color: "var(--color-on-dark-soft)",
       textDecoration: "none"
     }
-  }, /*#__PURE__*/React.createElement(Hover, {
+  }), /*#__PURE__*/React.createElement(Hover, {
     t: l
   })))))))), /*#__PURE__*/React.createElement("img", {
     src: resolveAsset("assets/node-footer-wordmark.svg"),

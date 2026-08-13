@@ -74,7 +74,7 @@ function PrivacyPage() {
 
       <h2>11. Contact</h2>
       <p>For privacy-related inquiries, requests, or complaints, contact our Privacy Officer:</p>
-      <p>Node Ventures Inc.<br />Email: <a href="mailto:admin@nodeventures.ca">admin@nodeventures.ca</a></p>
+      <p>Node Ventures Inc.<br />Email: <a href="mailto:admin@nodeventures.ca" target="_blank" rel="noopener noreferrer">admin@nodeventures.ca</a></p>
       <p>You may also view our <a href={href("Terms")}>Terms of Use</a>.</p>
     </window.LegalPage>
   );

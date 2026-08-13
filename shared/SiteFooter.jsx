@@ -32,7 +32,7 @@ function SiteFooter() {
                     {l.address.map((line) => <div key={line}>{line}</div>)}
                   </li>
                 ) : (
-                  <li key={l}><a href={href(l)} style={{ fontFamily: "var(--font-body)", fontSize: "var(--body-sm-size)", color: "var(--color-on-dark-soft)", textDecoration: "none" }}>{<Hover t={l} />}</a></li>
+                  <li key={l}><a href={href(l)} {...(href(l).indexOf("mailto:") === 0 ? { target: "_blank", rel: "noopener noreferrer" } : {})} style={{ fontFamily: "var(--font-body)", fontSize: "var(--body-sm-size)", color: "var(--color-on-dark-soft)", textDecoration: "none" }}>{<Hover t={l} />}</a></li>
                 )))}
               </ul>
             </div>

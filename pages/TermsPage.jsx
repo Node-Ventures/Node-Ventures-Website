@@ -58,7 +58,7 @@ function TermsPage() {
       <p>These Terms are governed by and construed in accordance with the laws of the Province of Ontario and the federal laws of Canada applicable therein. You irrevocably submit to the exclusive jurisdiction of the courts of Ontario for the resolution of any dispute arising from these Terms.</p>
 
       <h2>11. Contact</h2>
-      <p>If you have questions about these Terms, please contact us at <a href="mailto:admin@nodeventures.ca">admin@nodeventures.ca</a>.</p>
+      <p>If you have questions about these Terms, please contact us at <a href="mailto:admin@nodeventures.ca" target="_blank" rel="noopener noreferrer">admin@nodeventures.ca</a>.</p>
     </window.LegalPage>
   );
 }
