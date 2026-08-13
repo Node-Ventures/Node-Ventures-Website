@@ -8,7 +8,7 @@ import fs from "node:fs";
 import path from "node:path";
 import babel from "@babel/core";
 
-const DIRS = ["shared", "pages", "domains"];
+const DIRS = ["shared", "pages", "domains", "funds"];
 
 let count = 0;
 for (const dir of DIRS) {

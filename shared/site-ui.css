@@ -47,6 +47,21 @@ button[style*="repeating-linear-gradient"]:not(:disabled):hover {
 .nv-legal-body a { color: var(--color-primary); text-decoration: none; }
 .nv-legal-body a:hover { color: var(--color-primary-active); }
 
+/* ---- footer: responsive column collapse ----
+   The footer's 4-part grid (logo + Fund management + Domains + Company) needs
+   to shed columns as the viewport narrows, or the address/"Community
+   infrastructure" wrap onto extra lines. Three tiers:
+     ≤760px:      1 column, everything stacked
+     761–1150px:  2 columns (logo spans full width above them)
+     ≥1151px:     the full 4-column desktop layout (set inline in SiteFooter) */
+@media (max-width: 760px) {
+  .nv-footer-box .nv-footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+}
+@media (min-width: 761px) and (max-width: 1150px) {
+  .nv-footer-box .nv-footer-grid { grid-template-columns: 1fr 1fr !important; gap: 32px 40px !important; }
+  .nv-footer-box .nv-footer-grid > div:first-child { grid-column: 1 / -1; }
+}
+
 /* ---- circular / square icon arrow buttons ---- */
 .cta-arrow-link:hover .cta-arrow { background: var(--color-primary) !important; border-style: solid !important; border-color: var(--color-primary) !important; }
 .cta-arrow-link:hover .cta-arrow svg { stroke: var(--color-on-primary) !important; }

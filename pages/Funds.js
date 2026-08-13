@@ -7,12 +7,18 @@ function Funds() {
   const scRef = React.useRef(null);
   const items = [{
     t: "Venture Fund",
+    link: "Venture fund",
+    cta: "Discover the Venture Fund",
     b: "Invest in early-stage companies developing technologies with the potential to create long-term value and real-world impact."
   }, {
     t: "Debt Fund",
+    link: "Debt fund",
+    cta: "Discover the Debt Fund",
     b: "Provide capital that helps ventures scale while generating predictable, asset-backed returns."
   }, {
     t: "Asset Fund",
+    link: "Asset fund",
+    cta: "Discover the Asset Fund",
     b: "Participate in the infrastructure, property, and other real assets created and operated across the Node ecosystem."
   }];
   const LINE = "var(--color-grid-line)";
@@ -246,13 +252,13 @@ function Funds() {
       paddingTop: isMobile ? 18 : 28
     }
   }, /*#__PURE__*/React.createElement("a", {
-    href: window.NV_HREF && window.NV_HREF("Contact") || "contact.html",
+    href: window.NV_HREF && window.NV_HREF(it.link) || "#",
     style: {
       textDecoration: "none"
     }
   }, /*#__PURE__*/React.createElement(Button, {
     variant: "primary",
     size: "sm"
-  }, "Let's talk")))))))));
+  }, it.cta)))))))));
 }
 window.Funds = Funds;

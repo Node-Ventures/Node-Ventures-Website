@@ -14,7 +14,8 @@ function SiteNav() {
     label: "Domains",
     menu: ["Built environment", "National defence", "Community infrastructure", "Enterprise AI"]
   }, {
-    label: "Contact"
+    label: "Fund management",
+    menu: ["Asset fund", "Venture fund", "Debt fund"]
   }];
   const [open, setOpen] = React.useState(null);
   const isMobile = window.useIsMobile ? window.useIsMobile() : false;
@@ -236,7 +237,7 @@ function SiteNav() {
         marginTop: 28
       }
     }, /*#__PURE__*/React.createElement("a", {
-      href: href("Start contributing"),
+      href: href("Contact"),
       style: {
         textDecoration: "none",
         display: "block"
@@ -247,7 +248,7 @@ function SiteNav() {
       style: {
         width: "100%"
       }
-    }, "Start contributing")))));
+    }, "Let's talk")))));
   }
   return /*#__PURE__*/React.createElement("nav", {
     style: {
@@ -385,13 +386,13 @@ function SiteNav() {
   }, /*#__PURE__*/React.createElement(Hover, {
     t: "Log in"
   })), /*#__PURE__*/React.createElement("a", {
-    href: href("Start contributing"),
+    href: href("Contact"),
     style: {
       textDecoration: "none"
     }
   }, /*#__PURE__*/React.createElement(Button, {
     variant: "primary",
     size: "sm"
-  }, "Start contributing"))));
+  }, "Let's talk"))));
 }
 window.SiteNav = SiteNav;

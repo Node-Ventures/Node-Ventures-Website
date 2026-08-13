@@ -5,6 +5,7 @@ function SiteFooter() {
   // NOTE (pre-launch): Invest / Ventures columns and the Contribute link
   // temporarily removed — pages not built yet. Restore when they ship.
   const cols = [
+    { h: "Fund management", links: ["Asset fund", "Venture fund", "Debt fund"] },
     { h: "Domains", links: ["Built environment", "National defence", "Community infrastructure", "Enterprise AI"] },
     { h: "Company", links: [{ address: ["95 Mural St. Richmond Hill", "Ontario L4B 3G2"] }, "admin@nodeventures.ca", "Contact", "Log in"] },
   ];
@@ -19,7 +20,7 @@ function SiteFooter() {
         {/* vertical rules continuing down either side of the footer */}
         <div aria-hidden="true" style={{ position: "absolute", top: 0, bottom: 0, left: 0, width: 1, background: "#403d38", pointerEvents: "none", zIndex: 0 }}></div>
         <div aria-hidden="true" style={{ position: "absolute", top: 0, bottom: 0, right: 0, width: 1, background: "#403d38", pointerEvents: "none", zIndex: 0 }}></div>
-        <div className="nv-footer-grid" style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr", gap: 32, position: "relative", zIndex: 1 }}>
+        <div className="nv-footer-grid" style={{ display: "grid", gridTemplateColumns: "1.3fr 0.85fr 1fr 1.05fr", gap: 32, position: "relative", zIndex: 1 }}>
           <div>
             <img src={resolveAsset("assets/node-wordmark.svg")} alt="Node Ventures" style={{ display: "block", height: 30, width: "auto" }} />
           </div>

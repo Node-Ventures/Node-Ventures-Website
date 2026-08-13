@@ -10,7 +10,7 @@ function SiteNav() {
   // their pages aren't built yet. Restore these entries when they ship.
   const items = [
     { label: "Domains", menu: ["Built environment", "National defence", "Community infrastructure", "Enterprise AI"] },
-    { label: "Contact" },
+    { label: "Fund management", menu: ["Asset fund", "Venture fund", "Debt fund"] },
   ];
   const [open, setOpen] = React.useState(null);
   const isMobile = window.useIsMobile ? window.useIsMobile() : false;
@@ -102,7 +102,7 @@ function SiteNav() {
             </li>
           </ul>
           <div style={{ marginTop: 28 }}>
-            <a href={href("Start contributing")} style={{ textDecoration: "none", display: "block" }}><Button variant="primary" size="lg" style={{ width: "100%" }}>Start contributing</Button></a>
+            <a href={href("Contact")} style={{ textDecoration: "none", display: "block" }}><Button variant="primary" size="lg" style={{ width: "100%" }}>Let's talk</Button></a>
           </div>
         </div>
       </nav>
@@ -175,7 +175,7 @@ function SiteNav() {
           onMouseEnter={(e) => { e.currentTarget.style.opacity = 1; }}
           onMouseLeave={(e) => { e.currentTarget.style.opacity = 0.78; }}
         >{<Hover t="Log in" />}</a>
-        <a href={href("Start contributing")} style={{ textDecoration: "none" }}><Button variant="primary" size="sm">Start contributing</Button></a>
+        <a href={href("Contact")} style={{ textDecoration: "none" }}><Button variant="primary" size="sm">Let's talk</Button></a>
       </div>
     </nav>
   );

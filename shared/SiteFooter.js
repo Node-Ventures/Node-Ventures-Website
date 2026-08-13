@@ -6,6 +6,9 @@ function SiteFooter() {
   // NOTE (pre-launch): Invest / Ventures columns and the Contribute link
   // temporarily removed — pages not built yet. Restore when they ship.
   const cols = [{
+    h: "Fund management",
+    links: ["Asset fund", "Venture fund", "Debt fund"]
+  }, {
     h: "Domains",
     links: ["Built environment", "National defence", "Community infrastructure", "Enterprise AI"]
   }, {
@@ -74,7 +77,7 @@ function SiteFooter() {
     className: "nv-footer-grid",
     style: {
       display: "grid",
-      gridTemplateColumns: "1.6fr 1fr 1fr",
+      gridTemplateColumns: "1.3fr 0.85fr 1fr 1.05fr",
       gap: 32,
       position: "relative",
       zIndex: 1
