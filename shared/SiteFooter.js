@@ -8,8 +8,10 @@ function SiteFooter() {
     h: "Domains",
     links: ["Built environment", "National defence", "Community infrastructure", "Enterprise AI"]
   }, {
-    h: "About",
-    links: ["Contact", "Log in"]
+    h: "Company",
+    links: [{
+      address: ["95 Mural St. Richmond Hill", "Ontario L4B 3G2"]
+    }, "admin@nodeventures.ca", "Contact", "Log in"]
   }];
   const Hover = ({
     t
@@ -104,7 +106,17 @@ function SiteFooter() {
       flexDirection: "column",
       gap: 10
     }
-  }, c.links.map(l => /*#__PURE__*/React.createElement("li", {
+  }, c.links.map(l => typeof l === "object" ? /*#__PURE__*/React.createElement("li", {
+    key: "address",
+    style: {
+      fontFamily: "var(--font-body)",
+      fontSize: "var(--body-sm-size)",
+      color: "var(--color-on-dark-soft)",
+      lineHeight: 1.45
+    }
+  }, l.address.map(line => /*#__PURE__*/React.createElement("div", {
+    key: line
+  }, line))) : /*#__PURE__*/React.createElement("li", {
     key: l
   }, /*#__PURE__*/React.createElement("a", {
     href: href(l),

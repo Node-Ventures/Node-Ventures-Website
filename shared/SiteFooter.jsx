@@ -6,7 +6,7 @@ function SiteFooter() {
   // temporarily removed — pages not built yet. Restore when they ship.
   const cols = [
     { h: "Domains", links: ["Built environment", "National defence", "Community infrastructure", "Enterprise AI"] },
-    { h: "About", links: ["Contact", "Log in"] },
+    { h: "Company", links: [{ address: ["95 Mural St. Richmond Hill", "Ontario L4B 3G2"] }, "admin@nodeventures.ca", "Contact", "Log in"] },
   ];
   const Hover = ({ t }) => (
     <span className="nv-link"><span data-t={t} style={{ whiteSpace: "normal" }}>{t}</span></span>
@@ -27,9 +27,13 @@ function SiteFooter() {
             <div key={c.h}>
               <div style={{ fontFamily: "var(--font-mono)", fontSize: 12, textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--color-on-dark)", marginBottom: 16 }}>{c.h}</div>
               <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 10 }}>
-                {c.links.map((l) => (
+                {c.links.map((l) => (typeof l === "object" ? (
+                  <li key="address" style={{ fontFamily: "var(--font-body)", fontSize: "var(--body-sm-size)", color: "var(--color-on-dark-soft)", lineHeight: 1.45 }}>
+                    {l.address.map((line) => <div key={line}>{line}</div>)}
+                  </li>
+                ) : (
                   <li key={l}><a href={href(l)} style={{ fontFamily: "var(--font-body)", fontSize: "var(--body-sm-size)", color: "var(--color-on-dark-soft)", textDecoration: "none" }}>{<Hover t={l} />}</a></li>
-                ))}
+                )))}
               </ul>
             </div>
           ))}

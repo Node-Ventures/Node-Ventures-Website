@@ -16,16 +16,17 @@
     "Contact": "contact.html",
     "Privacy": "privacy.html",
     "Terms": "terms.html",
+    "admin@nodeventures.ca": "mailto:admin@nodeventures.ca",
     // External app — login / start contributing. Absolute URL, returned as-is.
     "Log in": "http://app.nodeventures.ca/login",
     "Start contributing": "http://app.nodeventures.ca/login"
   };
-  // Resolve a nav/footer label to an href. Absolute URLs pass through;
-  // known relative pages get the base prefix; unknown/unbuilt labels → "#".
+  // Resolve a nav/footer label to an href. Absolute URLs and mailto: links pass
+  // through; known relative pages get the base prefix; unknown/unbuilt labels → "#".
   window.NV_HREF = function (label) {
     var p = PAGES[label];
     if (!p) return "#";
-    if (/^https?:\/\//.test(p)) return p;
+    if (/^(https?:\/\/|mailto:)/.test(p)) return p;
     return BASE + p;
   };
 })();
