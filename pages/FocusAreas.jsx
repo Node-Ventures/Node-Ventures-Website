@@ -32,14 +32,14 @@ function FocusAreas() {
           <div>
             <div className="nv-label">Domains</div>
             <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--h2-weight)", fontSize: "var(--h2-size)", lineHeight: "var(--h2-line)", letterSpacing: "var(--h2-track)", margin: "16px 0 0", maxWidth: 400 }}>
-              Where we're focused today.
+              Where we’re focused today.
             </h2>
             <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--body-lg-size)", lineHeight: "var(--body-lg-line)", color: "var(--color-body)", margin: "20px 0 0", maxWidth: 400 }}>
-              <span style={{ color: "var(--color-ink)" }}>Node builds ecosystems around Canada's most important opportunities.</span> We focus our ventures and investments in domains where digital innovation can create lasting national impact.
+              <span style={{ color: "var(--color-ink)" }}>Node builds ecosystems around Canada’s most important opportunities.</span> We focus our ventures and investments in domains where digital innovation can create lasting national impact.
             </p>
             <div style={{ display: "flex", gap: 12, marginTop: 28 }}>
-              <Button variant="primary" size="md">Start contributing</Button>
-              <Button variant="secondary" size="md">Let's talk</Button>
+              <a href={(window.NV_HREF && window.NV_HREF("Contribute")) || "#"} style={{ textDecoration: "none" }}><Button variant="primary" size="md">Start contributing</Button></a>
+              <a href={(window.NV_HREF && window.NV_HREF("Contact")) || "contact.html"} style={{ textDecoration: "none" }}><Button variant="secondary" size="md">Let’s talk</Button></a>
             </div>
           </div>
           {/* right: the four domains, stacked */}

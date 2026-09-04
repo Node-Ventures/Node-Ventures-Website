@@ -94,7 +94,7 @@ function FocusAreas() {
       margin: "16px 0 0",
       maxWidth: 400
     }
-  }, "Where we're focused today."), /*#__PURE__*/React.createElement("p", {
+  }, "Where we\u2019re focused today."), /*#__PURE__*/React.createElement("p", {
     style: {
       fontFamily: "var(--font-body)",
       fontSize: "var(--body-lg-size)",
@@ -107,19 +107,29 @@ function FocusAreas() {
     style: {
       color: "var(--color-ink)"
     }
-  }, "Node builds ecosystems around Canada's most important opportunities."), " We focus our ventures and investments in domains where digital innovation can create lasting national impact."), /*#__PURE__*/React.createElement("div", {
+  }, "Node builds ecosystems around Canada\u2019s most important opportunities."), " We focus our ventures and investments in domains where digital innovation can create lasting national impact."), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       gap: 12,
       marginTop: 28
     }
+  }, /*#__PURE__*/React.createElement("a", {
+    href: window.NV_HREF && window.NV_HREF("Contribute") || "#",
+    style: {
+      textDecoration: "none"
+    }
   }, /*#__PURE__*/React.createElement(Button, {
     variant: "primary",
     size: "md"
-  }, "Start contributing"), /*#__PURE__*/React.createElement(Button, {
+  }, "Start contributing")), /*#__PURE__*/React.createElement("a", {
+    href: window.NV_HREF && window.NV_HREF("Contact") || "contact.html",
+    style: {
+      textDecoration: "none"
+    }
+  }, /*#__PURE__*/React.createElement(Button, {
     variant: "secondary",
     size: "md"
-  }, "Let's talk"))), /*#__PURE__*/React.createElement("div", {
+  }, "Let\u2019s talk")))), /*#__PURE__*/React.createElement("div", {
     style: {
       position: "relative"
     }

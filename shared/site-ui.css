@@ -48,7 +48,7 @@ button[style*="repeating-linear-gradient"]:not(:disabled):hover {
 .nv-legal-body a:hover { color: var(--color-primary-active); }
 
 /* ---- footer: responsive column collapse ----
-   The footer's 4-part grid (logo + Fund management + Domains + Company) needs
+   The footer's 4-part grid (logo + How to engage + Domains + Company) needs
    to shed columns as the viewport narrows, or the address/"Community
    infrastructure" wrap onto extra lines. Three tiers:
      ≤760px:      1 column, everything stacked
@@ -68,3 +68,51 @@ button[style*="repeating-linear-gradient"]:not(:disabled):hover {
 .nv-vent-arrow { transition: background .3s, border-color .3s; }
 .nv-vent-arrow:hover { background: var(--color-primary) !important; border-style: solid !important; border-color: var(--color-primary) !important; }
 .nv-vent-arrow:hover svg { stroke: var(--color-on-primary) !important; }
+
+/* ---- notched image (45° top-left + bottom-right corners) ---- */
+.nv-notch-img { clip-path: polygon(44px 0, 100% 0, 100% calc(100% - 44px), calc(100% - 44px) 100%, 0 100%, 0 44px); }
+@media (max-width: 760px) { .nv-notch-img { clip-path: polygon(26px 0, 100% 0, 100% calc(100% - 26px), calc(100% - 26px) 100%, 0 100%, 0 26px); } }
+
+/* ---- vertical numbered timeline (Contributor Program page) ---- */
+.nv-tl { display: block; }
+.nv-tl-step { display: grid; grid-template-columns: 1fr 64px 1fr; column-gap: 40px; padding-bottom: 64px; align-items: start; }
+.nv-tl-step:last-child { padding-bottom: 0; }
+.nv-tl-rail { position: relative; align-self: stretch; }
+.nv-tl-circle { width: 64px; height: 64px; border-radius: 50%; border: 1px solid var(--color-grid-line); background: var(--color-canvas); display: grid; place-items: center; font-family: var(--font-mono); font-size: 15px; letter-spacing: 0.04em; color: var(--color-primary); position: relative; z-index: 1; }
+.nv-tl-step:last-child .nv-tl-circle { background: var(--color-canvas); border-color: var(--color-grid-line); color: var(--color-primary); }
+.nv-tl-step:not(:last-child) .nv-tl-rail::after { content: ""; position: absolute; left: 50%; transform: translateX(-0.5px); top: 64px; bottom: -64px; width: 1px; background: var(--color-grid-line); }
+.nv-tl-body { display: block; }
+.nv-tl-visual { position: relative; height: 300px; overflow: hidden; }
+.nv-tl-visual::before { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(rgba(20,20,19,0.14) 0.9px, transparent 1.3px); background-size: 13px 13px; mask-image: radial-gradient(120% 100% at 50% 45%, #000 55%, transparent 100%); -webkit-mask-image: radial-gradient(120% 100% at 50% 45%, #000 55%, transparent 100%); }
+.nv-tl-visual img { position: absolute; inset: 0; margin: 0 0 auto auto; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 12px 28px rgba(20,20,19,0.15)); }
+.nv-dark .nv-tl-circle { border-color: rgba(250,249,245,0.34); background: transparent; color: var(--color-primary-on-dark); }
+.nv-dark .nv-tl-step:last-child .nv-tl-circle { background: transparent; border-color: rgba(250,249,245,0.34); color: var(--color-primary-on-dark); }
+.nv-dark .nv-tl-step:not(:last-child) .nv-tl-rail::after { background: rgba(250,249,245,0.28); }
+.nv-dark .nv-tl-visual::before { background-image: radial-gradient(rgba(250,249,245,0.12) 0.9px, transparent 1.3px); }
+.nv-dark .nv-tl-visual img { filter: drop-shadow(0 12px 28px rgba(0,0,0,0.45)); }
+@media (max-width: 900px) { .nv-tl-step { grid-template-columns: 64px 1fr; } .nv-tl-visual-col { display: none; } }
+@media (max-width: 760px) {
+  .nv-tl-step { grid-template-columns: 44px 1fr; column-gap: 20px; padding-bottom: 44px; }
+  .nv-tl-circle { width: 44px; height: 44px; font-size: 13px; }
+  .nv-tl-step:not(:last-child) .nv-tl-rail::after { top: 44px; bottom: -44px; }
+  .nv-tl-visual { height: 230px; }
+}
+
+/* ---- secondary button ON a dark surface: cream dashed frame, cream label ----
+   Wrap the <Button variant="secondary"> in <a class="nv-btn-dark"> (or any
+   element) to flip its dashed frame from ink to cream. Single source of truth
+   for the dark-CTA button pairing; the DS Button ships inline styles, so these
+   need !important to win. */
+.nv-btn-dark > button {
+  color: var(--color-on-dark) !important;
+  background-color: var(--color-surface-dark) !important;
+  background-image:
+    repeating-linear-gradient(90deg, var(--color-on-dark) 0 var(--line-dash), transparent var(--line-dash) var(--line-step)),
+    repeating-linear-gradient(90deg, var(--color-on-dark) 0 var(--line-dash), transparent var(--line-dash) var(--line-step)),
+    repeating-linear-gradient(0deg, var(--color-on-dark) 0 var(--line-dash), transparent var(--line-dash) var(--line-step)),
+    repeating-linear-gradient(0deg, var(--color-on-dark) 0 var(--line-dash), transparent var(--line-dash) var(--line-step)) !important;
+  background-size: 100% 1px, 100% 1px, 1px 100%, 1px 100% !important;
+  background-position: top, bottom, left, right !important;
+  background-repeat: no-repeat !important;
+}
+.nv-btn-dark > button:hover { background: var(--color-primary) !important; color: var(--color-on-primary) !important; }

@@ -116,8 +116,8 @@ function Hero() {
             A central hub connecting the ventures, capital, and expertise that turn ambitious ideas into reality.
           </p>
           <div style={{ display: "flex", gap: 12, marginTop: 28, pointerEvents: "auto", flexWrap: "wrap" }}>
-            <a href={(window.NV_HREF && window.NV_HREF("Start contributing")) || "#"} style={{ textDecoration: "none" }}><Button variant="primary" size="lg">Start contributing</Button></a>
-            <a href={(window.NV_HREF && window.NV_HREF("Contact")) || "contact.html"} style={{ textDecoration: "none" }}><Button variant="secondary" size="lg" style={secondaryStyle}>Let's talk</Button></a>
+            <a href={(window.NV_HREF && window.NV_HREF("Contribute")) || "#"} style={{ textDecoration: "none" }}><Button variant="primary" size="lg">Start contributing</Button></a>
+            <a href={(window.NV_HREF && window.NV_HREF("Contact")) || "contact.html"} style={{ textDecoration: "none" }}><Button variant="secondary" size="lg" style={secondaryStyle}>Let’s talk</Button></a>
           </div>
         </div>
         {isMobile ? (

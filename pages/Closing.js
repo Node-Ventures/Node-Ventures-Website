@@ -230,7 +230,7 @@ function Closing() {
       maxWidth: 400
     }
   }, p.b), /*#__PURE__*/React.createElement(Arrow, {
-    href: p.eyebrow === "Contribute" ? window.NV_HREF && window.NV_HREF("Start contributing") || "#" : window.NV_HREF && window.NV_HREF("Contact") || "contact.html"
+    href: p.eyebrow === "Contribute" ? window.NV_HREF && window.NV_HREF("Contribute") || "#" : window.NV_HREF && window.NV_HREF("Contact") || "contact.html"
   }))))))));
 }
 window.Closing = Closing;

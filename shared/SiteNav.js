@@ -11,6 +11,8 @@ function SiteNav() {
   // NOTE (pre-launch): Contribute / Invest / Ventures temporarily removed —
   // their pages aren't built yet. Restore these entries when they ship.
   const items = [{
+    label: "Contribute"
+  }, {
     label: "Domains",
     menu: ["Built environment", "National defence", "Community infrastructure", "Enterprise AI"]
   }, {
@@ -301,13 +303,10 @@ function SiteNav() {
     },
     onMouseEnter: it.menu ? () => setOpen(it.label) : undefined,
     onMouseLeave: it.menu ? () => setOpen(null) : undefined
-  }, /*#__PURE__*/React.createElement("a", {
-    href: it.menu ? "#" : href(it.label),
+  }, it.menu ? /*#__PURE__*/React.createElement("button", {
+    type: "button",
     style: linkStyle,
-    onClick: it.menu ? e => {
-      e.preventDefault();
-      setOpen(open === it.label ? null : it.label);
-    } : undefined,
+    onClick: () => setOpen(open === it.label ? null : it.label),
     onMouseEnter: e => {
       e.currentTarget.style.opacity = 1;
     },
@@ -316,7 +315,18 @@ function SiteNav() {
     }
   }, /*#__PURE__*/React.createElement(Hover, {
     t: it.label
-  }), it.menu ? caret(open === it.label) : null), it.menu && open === it.label ? /*#__PURE__*/React.createElement("div", {
+  }), caret(open === it.label)) : /*#__PURE__*/React.createElement("a", {
+    href: href(it.label),
+    style: linkStyle,
+    onMouseEnter: e => {
+      e.currentTarget.style.opacity = 1;
+    },
+    onMouseLeave: e => {
+      e.currentTarget.style.opacity = 0.78;
+    }
+  }, /*#__PURE__*/React.createElement(Hover, {
+    t: it.label
+  })), it.menu && open === it.label ? /*#__PURE__*/React.createElement("div", {
     style: {
       position: "absolute",
       top: "calc(100% + 14px)",

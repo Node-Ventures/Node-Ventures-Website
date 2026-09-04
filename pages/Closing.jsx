@@ -68,7 +68,7 @@ function Closing() {
                     {p.b}
                   </p>
                   <Arrow href={p.eyebrow === "Contribute"
-                    ? ((window.NV_HREF && window.NV_HREF("Start contributing")) || "#")
+                    ? ((window.NV_HREF && window.NV_HREF("Contribute")) || "#")
                     : ((window.NV_HREF && window.NV_HREF("Contact")) || "contact.html")} />
                 </div>
               </div>

@@ -199,7 +199,7 @@ function Hero() {
       flexWrap: "wrap"
     }
   }, /*#__PURE__*/React.createElement("a", {
-    href: window.NV_HREF && window.NV_HREF("Start contributing") || "#",
+    href: window.NV_HREF && window.NV_HREF("Contribute") || "#",
     style: {
       textDecoration: "none"
     }
@@ -215,7 +215,7 @@ function Hero() {
     variant: "secondary",
     size: "lg",
     style: secondaryStyle
-  }, "Let's talk")))), isMobile ? /*#__PURE__*/React.createElement("img", {
+  }, "Let\u2019s talk")))), isMobile ? /*#__PURE__*/React.createElement("img", {
     src: resolveAsset("assets/hero-sphere.png"),
     alt: "",
     "aria-hidden": "true",

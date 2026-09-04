@@ -2,10 +2,10 @@
 // Link targets come from the shared site-links registry (window.NV_HREF).
 function SiteFooter() {
   const href = window.NV_HREF || (() => "#");
-  // NOTE (pre-launch): Invest / Ventures columns and the Contribute link
-  // temporarily removed — pages not built yet. Restore when they ship.
+  // NOTE (pre-launch): Invest / Ventures columns temporarily removed —
+  // their pages aren't built yet. Restore when they ship.
   const cols = [
-    { h: "Fund management", links: ["Asset fund", "Venture fund", "Debt fund"] },
+    { h: "How to engage", links: ["Contribute", "Asset fund", "Venture fund", "Debt fund"] },
     { h: "Domains", links: ["Built environment", "National defence", "Community infrastructure", "Enterprise AI"] },
     { h: "Company", links: [{ address: ["95 Mural St. Richmond Hill", "Ontario L4B 3G2"] }, "admin@nodeventures.ca", "Contact", "Log in"] },
   ];

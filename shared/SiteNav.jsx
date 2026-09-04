@@ -9,6 +9,7 @@ function SiteNav() {
   // NOTE (pre-launch): Contribute / Invest / Ventures temporarily removed —
   // their pages aren't built yet. Restore these entries when they ship.
   const items = [
+    { label: "Contribute" },
     { label: "Domains", menu: ["Built environment", "National defence", "Community infrastructure", "Enterprise AI"] },
     { label: "Fund management", menu: ["Asset fund", "Venture fund", "Debt fund"] },
   ];
@@ -129,16 +130,27 @@ function SiteNav() {
             onMouseEnter={it.menu ? () => setOpen(it.label) : undefined}
             onMouseLeave={it.menu ? () => setOpen(null) : undefined}
           >
-            <a
-              href={it.menu ? "#" : href(it.label)}
-              style={linkStyle}
-              onClick={it.menu ? (e) => { e.preventDefault(); setOpen(open === it.label ? null : it.label); } : undefined}
-              onMouseEnter={(e) => { e.currentTarget.style.opacity = 1; }}
-              onMouseLeave={(e) => { e.currentTarget.style.opacity = 0.78; }}
-            >
-              <Hover t={it.label} />
-              {it.menu ? caret(open === it.label) : null}
-            </a>
+            {it.menu ? (
+              <button
+                type="button"
+                style={linkStyle}
+                onClick={() => setOpen(open === it.label ? null : it.label)}
+                onMouseEnter={(e) => { e.currentTarget.style.opacity = 1; }}
+                onMouseLeave={(e) => { e.currentTarget.style.opacity = 0.78; }}
+              >
+                <Hover t={it.label} />
+                {caret(open === it.label)}
+              </button>
+            ) : (
+              <a
+                href={href(it.label)}
+                style={linkStyle}
+                onMouseEnter={(e) => { e.currentTarget.style.opacity = 1; }}
+                onMouseLeave={(e) => { e.currentTarget.style.opacity = 0.78; }}
+              >
+                <Hover t={it.label} />
+              </a>
+            )}
 
             {it.menu && open === it.label ? (
               <div style={{
