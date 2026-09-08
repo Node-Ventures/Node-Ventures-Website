@@ -64,7 +64,7 @@ function ContributorPlatform() {
   }, {
     t: "Share in success",
     lead: "Share in the value of what you help to create.",
-    b: "The Contributor Program is built around the idea that meaningful contribution should have meaningful value. As ventures progress, contributors can participate in their success according to the structure of each opportunity.",
+    b: "The Node Collective is built around the idea that meaningful contribution should have meaningful value. As ventures progress, contributors can participate in their success according to the structure of each opportunity.",
     img: "photos/process-05-success-hor.png",
     alt: "Project marked complete with all milestones done"
   }];
@@ -122,7 +122,7 @@ function ContributorPlatform() {
     }
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     className: "nv-label"
-  }, "CONTRIBUTOR PROGRAM"), /*#__PURE__*/React.createElement("h1", {
+  }, "JOIN THE NODE COLLECTIVE"), /*#__PURE__*/React.createElement("h1", {
     style: {
       fontFamily: "var(--font-display)",
       fontWeight: "var(--h1-weight)",
@@ -247,7 +247,7 @@ function ContributorPlatform() {
       margin: 0,
       textWrap: "pretty"
     }
-  }, "Building a great company takes more than capital. It takes people who know how to solve problems, make decisions, open doors, and turn ideas into something real. The Contributor Program is designed for people who want to do more than offer an occasional introduction or piece of advice."), /*#__PURE__*/React.createElement("p", {
+  }, "Building a great company takes more than capital. It takes people who know how to solve problems, make decisions, open doors, and turn ideas into something real. The Node Collective is designed for people who want to do more than offer an occasional introduction or piece of advice."), /*#__PURE__*/React.createElement("p", {
     style: {
       fontFamily: "var(--font-display)",
       fontWeight: 300,
@@ -279,7 +279,7 @@ function ContributorPlatform() {
     align: "center",
     eyebrow: "HOW IT WORKS",
     title: "From what you know to what you can help build.",
-    lead: "Create your profile, discover opportunities that match your experience, contribute alongside the Node collective, and follow the impact of the work you put in.",
+    lead: "Create your profile, discover opportunities that match your experience, contribute to your ventures, and follow the impact of the work you put in.",
     maxTitle: 680,
     maxLead: 700
   }), /*#__PURE__*/React.createElement("div", {
@@ -354,7 +354,7 @@ function ContributorPlatform() {
       maxWidth: 420,
       marginTop: 16
     }
-  }, "Can I contribute to the ventures?")), /*#__PURE__*/React.createElement("p", {
+  }, "Can I contribute to the collective?")), /*#__PURE__*/React.createElement("p", {
     style: {
       ...para,
       maxWidth: 620

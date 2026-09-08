@@ -43,7 +43,7 @@ function ContributorPlatform() {
     {
       t: "Share in success",
       lead: "Share in the value of what you help to create.",
-      b: "The Contributor Program is built around the idea that meaningful contribution should have meaningful value. As ventures progress, contributors can participate in their success according to the structure of each opportunity.",
+      b: "The Node Collective is built around the idea that meaningful contribution should have meaningful value. As ventures progress, contributors can participate in their success according to the structure of each opportunity.",
       img: "photos/process-05-success-hor.png",
       alt: "Project marked complete with all milestones done",
     },
@@ -67,7 +67,7 @@ function ContributorPlatform() {
           <div aria-hidden="true" className="nv-cp-hero-lower-dots"></div>
           <div className="nv-2col nv-cp-hero" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
             <div>
-              <div className="nv-label">CONTRIBUTOR PROGRAM</div>
+              <div className="nv-label">JOIN THE NODE COLLECTIVE</div>
               <h1 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--h1-weight)", fontSize: "var(--h1-size)", lineHeight: "var(--h1-line)", letterSpacing: "var(--h1-track)", color: "var(--color-ink)", margin: "18px 0 0", maxWidth: "9em" }}>Your expertise has value. Put it to work.</h1>
               <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--body-lg-size)", lineHeight: "var(--body-lg-line)", color: "var(--color-body)", margin: "22px 0 0", maxWidth: 400, textWrap: "pretty" }}>
                 Apply your skills and expertise to real ventures, meaningful challenges, and opportunities where you can make a difference.
@@ -97,7 +97,7 @@ function ContributorPlatform() {
         <div className="nv-band-inner" style={{ position: "relative", zIndex: 1 }}>
           <div className="nv-cp-lede" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64 }}>
             <p style={{ fontFamily: "var(--font-display)", fontWeight: 300, fontSize: "clamp(21px, 2vw, 26px)", lineHeight: 1.4, letterSpacing: "-0.3px", color: "var(--color-ink)", margin: 0, textWrap: "pretty" }}>
-              Building a great company takes more than capital. It takes people who know how to solve problems, make decisions, open doors, and turn ideas into something real. The Contributor Program is designed for people who want to do more than offer an occasional introduction or piece of advice.
+              Building a great company takes more than capital. It takes people who know how to solve problems, make decisions, open doors, and turn ideas into something real. The Node Collective is designed for people who want to do more than offer an occasional introduction or piece of advice.
             </p>
             <p style={{ fontFamily: "var(--font-display)", fontWeight: 300, fontSize: "clamp(21px, 2vw, 26px)", lineHeight: 1.4, letterSpacing: "-0.3px", color: "var(--color-ink)", margin: 0, textWrap: "pretty" }}>
               Become a Node contributor to apply your expertise to real work on a scheduled basis. Decide your level of contribution, choose the projects you’re interested in, and track your time. You become part of the venture development, and you share in its progress, launch and success.
@@ -114,7 +114,7 @@ function ContributorPlatform() {
             align="center"
             eyebrow="HOW IT WORKS"
             title="From what you know to what you can help build."
-            lead="Create your profile, discover opportunities that match your experience, contribute alongside the Node collective, and follow the impact of the work you put in."
+            lead="Create your profile, discover opportunities that match your experience, contribute to your ventures, and follow the impact of the work you put in."
             maxTitle={680} maxLead={700}
           />
           <div className="nv-tl" style={{ marginTop: 96 }}>
@@ -147,7 +147,7 @@ function ContributorPlatform() {
           <div className="nv-2col nv-cp-split" style={{ display: "grid", gridTemplateColumns: "0.9fr 1.1fr", gap: 56, alignItems: "end" }}>
             <div>
               <div className="nv-label">WHO IT’S FOR</div>
-              <h2 style={{ ...h2, maxWidth: 420, marginTop: 16 }}>Can I contribute to the ventures?</h2>
+              <h2 style={{ ...h2, maxWidth: 420, marginTop: 16 }}>Can I contribute to the collective?</h2>
             </div>
             <p style={{ ...para, maxWidth: 620 }}>The Node ecosystem brings together contributors with a wide range of professional backgrounds, perspectives, and capabilities. We connect the right expertise to the ventures where it can have meaningful impact.</p>
           </div>
