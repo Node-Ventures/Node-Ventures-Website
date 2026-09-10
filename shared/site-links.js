@@ -9,7 +9,7 @@
   var BASE = typeof window !== "undefined" && window.__siteBase || "";
   var PAGES = {
     "Home": "index.html",
-    "Contribute": "contribute.html",
+    "Contribute": "thecollective.html",
     "Built environment": "domains/built-environment.html",
     "National defence": "domains/national-defence.html",
     "Enterprise AI": "domains/enterprise-ai.html",
