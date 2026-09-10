@@ -6,7 +6,7 @@ function Platform() {
   const href = (l) => (window.NV_HREF && window.NV_HREF(l)) || "#";
   const cards = [
     { title: "Contribute your skills", slot: "platform-contribute", placeholder: "Contribute image", graphic: "contribute",
-      body: "Plug in to Node's ecosystem by contributing your time, skills and guidance to our hub of active ventures. Collaborate with like-minded experts to help take solutions from idea to implementation.",
+      body: "Plug in to Node's ecosystem by contributing your time, skills and guidance to our collective of active ventures. Collaborate with like-minded experts to help take solutions from idea to implementation.",
       cta: "Become a contributor", href: href("Start contributing") },
     { title: "Invest in innovation", slot: "platform-invest", placeholder: "Invest image", graphic: "invest",
       body: "Explore investment opportunities across the Node ecosystem. Back ventures, projects, and assets designed to create long-term value while supporting practical innovation.",

@@ -7,7 +7,10 @@ function SiteFooter() {
   // their pages aren't built yet. Restore when they ship.
   const cols = [{
     h: "How to engage",
-    links: ["Contribute", "Asset fund", "Venture fund", "Debt fund"]
+    links: [{
+      label: "The collective",
+      href: "Contribute"
+    }, "Asset fund", "Venture fund", "Debt fund"]
   }, {
     h: "Domains",
     links: ["Built environment", "National defence", "Community infrastructure", "Enterprise AI"]
@@ -110,33 +113,40 @@ function SiteFooter() {
       flexDirection: "column",
       gap: 10
     }
-  }, c.links.map(l => typeof l === "object" ? /*#__PURE__*/React.createElement("li", {
-    key: "address",
-    style: {
-      fontFamily: "var(--font-body)",
-      fontSize: "var(--body-sm-size)",
-      color: "var(--color-on-dark-soft)",
-      lineHeight: 1.45
+  }, c.links.map(l => {
+    if (typeof l === "object" && l.address) {
+      return /*#__PURE__*/React.createElement("li", {
+        key: "address",
+        style: {
+          fontFamily: "var(--font-body)",
+          fontSize: "var(--body-sm-size)",
+          color: "var(--color-on-dark-soft)",
+          lineHeight: 1.45
+        }
+      }, l.address.map(line => /*#__PURE__*/React.createElement("div", {
+        key: line
+      }, line)));
     }
-  }, l.address.map(line => /*#__PURE__*/React.createElement("div", {
-    key: line
-  }, line))) : /*#__PURE__*/React.createElement("li", {
-    key: l
-  }, /*#__PURE__*/React.createElement("a", _extends({
-    href: href(l)
-  }, href(l).indexOf("mailto:") === 0 ? {
-    target: "_blank",
-    rel: "noopener noreferrer"
-  } : {}, {
-    style: {
-      fontFamily: "var(--font-body)",
-      fontSize: "var(--body-sm-size)",
-      color: "var(--color-on-dark-soft)",
-      textDecoration: "none"
-    }
-  }), /*#__PURE__*/React.createElement(Hover, {
-    t: l
-  })))))))), /*#__PURE__*/React.createElement("img", {
+    const label = typeof l === "object" ? l.label : l;
+    const key = typeof l === "object" ? l.href || l.label : l;
+    return /*#__PURE__*/React.createElement("li", {
+      key: label
+    }, /*#__PURE__*/React.createElement("a", _extends({
+      href: href(key)
+    }, href(key).indexOf("mailto:") === 0 ? {
+      target: "_blank",
+      rel: "noopener noreferrer"
+    } : {}, {
+      style: {
+        fontFamily: "var(--font-body)",
+        fontSize: "var(--body-sm-size)",
+        color: "var(--color-on-dark-soft)",
+        textDecoration: "none"
+      }
+    }), /*#__PURE__*/React.createElement(Hover, {
+      t: label
+    })));
+  }))))), /*#__PURE__*/React.createElement("img", {
     src: resolveAsset("assets/node-footer-wordmark.svg"),
     alt: "",
     "aria-hidden": "true",

@@ -5,7 +5,7 @@ function SiteFooter() {
   // NOTE (pre-launch): Invest / Ventures columns temporarily removed —
   // their pages aren't built yet. Restore when they ship.
   const cols = [
-    { h: "How to engage", links: ["Contribute", "Asset fund", "Venture fund", "Debt fund"] },
+    { h: "How to engage", links: [{ label: "The collective", href: "Contribute" }, "Asset fund", "Venture fund", "Debt fund"] },
     { h: "Domains", links: ["Built environment", "National defence", "Community infrastructure", "Enterprise AI"] },
     { h: "Company", links: [{ address: ["95 Mural St. Richmond Hill", "Ontario L4B 3G2"] }, "admin@nodeventures.ca", "Contact", "Log in"] },
   ];
@@ -28,13 +28,20 @@ function SiteFooter() {
             <div key={c.h}>
               <div style={{ fontFamily: "var(--font-mono)", fontSize: 12, textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--color-on-dark)", marginBottom: 16 }}>{c.h}</div>
               <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 10 }}>
-                {c.links.map((l) => (typeof l === "object" ? (
-                  <li key="address" style={{ fontFamily: "var(--font-body)", fontSize: "var(--body-sm-size)", color: "var(--color-on-dark-soft)", lineHeight: 1.45 }}>
-                    {l.address.map((line) => <div key={line}>{line}</div>)}
-                  </li>
-                ) : (
-                  <li key={l}><a href={href(l)} {...(href(l).indexOf("mailto:") === 0 ? { target: "_blank", rel: "noopener noreferrer" } : {})} style={{ fontFamily: "var(--font-body)", fontSize: "var(--body-sm-size)", color: "var(--color-on-dark-soft)", textDecoration: "none" }}>{<Hover t={l} />}</a></li>
-                )))}
+                {c.links.map((l) => {
+                  if (typeof l === "object" && l.address) {
+                    return (
+                      <li key="address" style={{ fontFamily: "var(--font-body)", fontSize: "var(--body-sm-size)", color: "var(--color-on-dark-soft)", lineHeight: 1.45 }}>
+                        {l.address.map((line) => <div key={line}>{line}</div>)}
+                      </li>
+                    );
+                  }
+                  const label = typeof l === "object" ? l.label : l;
+                  const key = typeof l === "object" ? (l.href || l.label) : l;
+                  return (
+                    <li key={label}><a href={href(key)} {...(href(key).indexOf("mailto:") === 0 ? { target: "_blank", rel: "noopener noreferrer" } : {})} style={{ fontFamily: "var(--font-body)", fontSize: "var(--body-sm-size)", color: "var(--color-on-dark-soft)", textDecoration: "none" }}>{<Hover t={label} />}</a></li>
+                  );
+                })}
               </ul>
             </div>
           ))}

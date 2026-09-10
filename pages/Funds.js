@@ -83,18 +83,13 @@ function Funds() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "flex-end",
+      display: "grid",
+      gridTemplateColumns: isMobile ? "1fr" : "1.6fr 1fr",
+      alignItems: "end",
       padding: isMobile ? "0 0 24px" : "0 0 40px",
-      gap: isMobile ? 14 : 32,
-      flexWrap: "wrap"
+      gap: isMobile ? 14 : 32
     }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      maxWidth: 620
-    }
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     className: "nv-label"
   }, "How to invest"), /*#__PURE__*/React.createElement("h2", {
     style: {
@@ -103,7 +98,8 @@ function Funds() {
       fontSize: "var(--h2-size)",
       lineHeight: "var(--h2-line)",
       letterSpacing: "var(--h2-track)",
-      margin: "10px 0 0"
+      margin: "10px 0 0",
+      maxWidth: "12.5em"
     }
   }, "Investment opportunities for every stage of growth.")), /*#__PURE__*/React.createElement("p", {
     style: {
@@ -111,8 +107,7 @@ function Funds() {
       fontSize: "var(--body-lg-size)",
       lineHeight: "var(--body-lg-line)",
       color: "var(--color-body)",
-      margin: 0,
-      maxWidth: 360
+      margin: 0
     }
   }, "Node Ventures offers investment structures designed to match your goals, timelines, and risk profiles.")), /*#__PURE__*/React.createElement("div", {
     style: {

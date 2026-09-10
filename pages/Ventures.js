@@ -122,7 +122,7 @@ function Ventures() {
       lineHeight: "var(--h2-line)",
       letterSpacing: "var(--h2-track)",
       margin: "16px 0 0",
-      maxWidth: 620,
+      maxWidth: "12em",
       color: "var(--color-on-dark)"
     }
   }, "Take a peek at some of Node's ventures."), /*#__PURE__*/React.createElement("p", {

@@ -50,10 +50,10 @@ function HowWeBuild() {
     return (
       <section className="nv-grid-band" style={{ paddingTop: 48, paddingBottom: 64 }}>
         <div className="nv-band-inner">
-          <div className="nv-label">How to contribute</div>
+          <div className="nv-label">Join the collective</div>
           <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--h2-weight)", fontSize: "var(--h2-size)", lineHeight: "var(--h2-line)", letterSpacing: "var(--h2-track)", margin: "12px 0 0" }}>Interested in contributing your time to a venture?</h2>
           <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--body-lg-size)", lineHeight: "var(--body-lg-line)", color: "var(--color-body)", margin: "14px 0 0" }}>
-            Put your skills to work on projects that match your passion, expertise and long-term goals. You choose your level of involvement.
+            Join the collective to put your skills to work on projects that match your passion, expertise and long-term goals. You choose your level of involvement.
           </p>
           <div ref={hwScRef} className="nv-howwe-scroll" style={{ marginTop: 24 }}>
             {steps.map((s, i) => (
@@ -82,13 +82,13 @@ function HowWeBuild() {
   return (
     <section className="nv-grid-band" style={{ paddingTop: 56, paddingBottom: 96 }}>
       <div className="nv-band-inner">
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 40, gap: 32, flexWrap: "wrap" }}>
-          <div style={{ maxWidth: 620 }}>
-            <div className="nv-label">How to contribute</div>
-            <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--h2-weight)", fontSize: "var(--h2-size)", lineHeight: "var(--h2-line)", letterSpacing: "var(--h2-track)", margin: "16px 0 0" }}>Interested in contributing your time to a venture?</h2>
+        <div className="nv-howwe-header" style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", alignItems: "end", marginBottom: 40, gap: 32 }}>
+          <div>
+            <div className="nv-label">Join the collective</div>
+            <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--h2-weight)", fontSize: "var(--h2-size)", lineHeight: "var(--h2-line)", letterSpacing: "var(--h2-track)", margin: "16px 0 0", maxWidth: "12.5em" }}>Interested in contributing your time to a venture?</h2>
           </div>
-          <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--body-lg-size)", lineHeight: "var(--body-lg-line)", color: "var(--color-body)", margin: 0, maxWidth: 360 }}>
-            Put your skills to work on projects that match your passion, expertise and long-term goals. You choose your level of involvement.
+          <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--body-lg-size)", lineHeight: "var(--body-lg-line)", color: "var(--color-body)", margin: 0 }}>
+            Join the collective to put your skills to work on projects that match your passion, expertise and long-term goals. You choose your level of involvement.
           </p>
         </div>
 

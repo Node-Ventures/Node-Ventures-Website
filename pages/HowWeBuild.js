@@ -112,7 +112,7 @@ function HowWeBuild() {
       className: "nv-band-inner"
     }, /*#__PURE__*/React.createElement("div", {
       className: "nv-label"
-    }, "How to contribute"), /*#__PURE__*/React.createElement("h2", {
+    }, "Join the collective"), /*#__PURE__*/React.createElement("h2", {
       style: {
         fontFamily: "var(--font-display)",
         fontWeight: "var(--h2-weight)",
@@ -129,7 +129,7 @@ function HowWeBuild() {
         color: "var(--color-body)",
         margin: "14px 0 0"
       }
-    }, "Put your skills to work on projects that match your passion, expertise and long-term goals. You choose your level of involvement."), /*#__PURE__*/React.createElement("div", {
+    }, "Join the collective to put your skills to work on projects that match your passion, expertise and long-term goals. You choose your level of involvement."), /*#__PURE__*/React.createElement("div", {
       ref: hwScRef,
       className: "nv-howwe-scroll",
       style: {
@@ -217,28 +217,25 @@ function HowWeBuild() {
   }, /*#__PURE__*/React.createElement("div", {
     className: "nv-band-inner"
   }, /*#__PURE__*/React.createElement("div", {
+    className: "nv-howwe-header",
     style: {
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "flex-end",
+      display: "grid",
+      gridTemplateColumns: "1.6fr 1fr",
+      alignItems: "end",
       marginBottom: 40,
-      gap: 32,
-      flexWrap: "wrap"
+      gap: 32
     }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      maxWidth: 620
-    }
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     className: "nv-label"
-  }, "How to contribute"), /*#__PURE__*/React.createElement("h2", {
+  }, "Join the collective"), /*#__PURE__*/React.createElement("h2", {
     style: {
       fontFamily: "var(--font-display)",
       fontWeight: "var(--h2-weight)",
       fontSize: "var(--h2-size)",
       lineHeight: "var(--h2-line)",
       letterSpacing: "var(--h2-track)",
-      margin: "16px 0 0"
+      margin: "16px 0 0",
+      maxWidth: "12.5em"
     }
   }, "Interested in contributing your time to a venture?")), /*#__PURE__*/React.createElement("p", {
     style: {
@@ -246,10 +243,9 @@ function HowWeBuild() {
       fontSize: "var(--body-lg-size)",
       lineHeight: "var(--body-lg-line)",
       color: "var(--color-body)",
-      margin: 0,
-      maxWidth: 360
+      margin: 0
     }
-  }, "Put your skills to work on projects that match your passion, expertise and long-term goals. You choose your level of involvement.")), /*#__PURE__*/React.createElement("div", {
+  }, "Join the collective to put your skills to work on projects that match your passion, expertise and long-term goals. You choose your level of involvement.")), /*#__PURE__*/React.createElement("div", {
     style: {
       position: "relative"
     }

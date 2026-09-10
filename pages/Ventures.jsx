@@ -42,7 +42,7 @@ function Ventures() {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 32, flexWrap: "wrap", marginBottom: 44 }}>
           <div>
             <div className="nv-label" style={{ color: "var(--color-primary-on-dark)" }}>Ventures</div>
-            <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--h2-weight)", fontSize: "var(--h2-size)", lineHeight: "var(--h2-line)", letterSpacing: "var(--h2-track)", margin: "16px 0 0", maxWidth: 620, color: "var(--color-on-dark)" }}>
+            <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--h2-weight)", fontSize: "var(--h2-size)", lineHeight: "var(--h2-line)", letterSpacing: "var(--h2-track)", margin: "16px 0 0", maxWidth: "12em", color: "var(--color-on-dark)" }}>
               Take a peek at some of Node's ventures.
             </h2>
             <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--body-lg-size)", lineHeight: "var(--body-lg-line)", color: "var(--color-on-dark-soft)", margin: "16px 0 0", maxWidth: 560 }}>

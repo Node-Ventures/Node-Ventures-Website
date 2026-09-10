@@ -9,7 +9,7 @@ function SiteNav() {
   // NOTE (pre-launch): Contribute / Invest / Ventures temporarily removed —
   // their pages aren't built yet. Restore these entries when they ship.
   const items = [
-    { label: "Contribute" },
+    { label: "The collective", href: "Contribute" },
     { label: "Domains", menu: ["Built environment", "National defence", "Community infrastructure", "Enterprise AI"] },
     { label: "Fund management", menu: ["Asset fund", "Venture fund", "Debt fund"] },
   ];
@@ -93,7 +93,7 @@ function SiteNav() {
                     </div>
                   </React.Fragment>
                 ) : (
-                  <a href={href(it.label)} onClick={() => setDrawer(false)}
+                  <a href={href(it.href || it.label)} onClick={() => setDrawer(false)}
                     style={{ ...linkStyle, opacity: 1, fontSize: 14, display: "flex", padding: "20px 0" }}>{it.label}</a>
                 )}
               </li>
@@ -143,7 +143,7 @@ function SiteNav() {
               </button>
             ) : (
               <a
-                href={href(it.label)}
+                href={href(it.href || it.label)}
                 style={linkStyle}
                 onMouseEnter={(e) => { e.currentTarget.style.opacity = 1; }}
                 onMouseLeave={(e) => { e.currentTarget.style.opacity = 0.78; }}

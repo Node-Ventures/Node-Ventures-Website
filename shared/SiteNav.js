@@ -11,7 +11,8 @@ function SiteNav() {
   // NOTE (pre-launch): Contribute / Invest / Ventures temporarily removed —
   // their pages aren't built yet. Restore these entries when they ship.
   const items = [{
-    label: "Contribute"
+    label: "The collective",
+    href: "Contribute"
   }, {
     label: "Domains",
     menu: ["Built environment", "National defence", "Community infrastructure", "Enterprise AI"]
@@ -211,7 +212,7 @@ function SiteNav() {
         padding: "10px 0"
       }
     }, sub)))))) : /*#__PURE__*/React.createElement("a", {
-      href: href(it.label),
+      href: href(it.href || it.label),
       onClick: () => setDrawer(false),
       style: {
         ...linkStyle,
@@ -316,7 +317,7 @@ function SiteNav() {
   }, /*#__PURE__*/React.createElement(Hover, {
     t: it.label
   }), caret(open === it.label)) : /*#__PURE__*/React.createElement("a", {
-    href: href(it.label),
+    href: href(it.href || it.label),
     style: linkStyle,
     onMouseEnter: e => {
       e.currentTarget.style.opacity = 1;

@@ -26,14 +26,14 @@ function Funds() {
     <section className="nv-grid-band" style={{ position: "relative", overflow: "hidden", paddingTop: isMobile ? 48 : 8, paddingBottom: isMobile ? 64 : 96, color: "var(--color-ink)" }}>
       <div className="nv-band-inner" style={{ position: "relative", zIndex: 2 }}>
         {/* header: heading left, subhead right */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", padding: isMobile ? "0 0 24px" : "0 0 40px", gap: isMobile ? 14 : 32, flexWrap: "wrap" }}>
-          <div style={{ maxWidth: 620 }}>
+        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1.6fr 1fr", alignItems: "end", padding: isMobile ? "0 0 24px" : "0 0 40px", gap: isMobile ? 14 : 32 }}>
+          <div>
             <div className="nv-label">How to invest</div>
-            <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--h2-weight)", fontSize: "var(--h2-size)", lineHeight: "var(--h2-line)", letterSpacing: "var(--h2-track)", margin: "10px 0 0" }}>
+            <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--h2-weight)", fontSize: "var(--h2-size)", lineHeight: "var(--h2-line)", letterSpacing: "var(--h2-track)", margin: "10px 0 0", maxWidth: "12.5em" }}>
               Investment opportunities for every stage of growth.
             </h2>
           </div>
-          <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--body-lg-size)", lineHeight: "var(--body-lg-line)", color: "var(--color-body)", margin: 0, maxWidth: 360 }}>
+          <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--body-lg-size)", lineHeight: "var(--body-lg-line)", color: "var(--color-body)", margin: 0 }}>
             Node Ventures offers investment structures designed to match your goals, timelines, and risk profiles.
           </p>
         </div>
