@@ -11,7 +11,7 @@ function Platform() {
     slot: "platform-contribute",
     placeholder: "Contribute image",
     graphic: "contribute",
-    body: "Plug in to Node's ecosystem by contributing your time, skills and guidance to our collective of active ventures. Collaborate with like-minded experts to help take solutions from idea to implementation.",
+    body: "Join the Node collective by actively contributing your time, skills and expertise to our ongoing ventures. Collaborate with like-minded experts to help take solutions from idea to implementation.",
     cta: "Become a contributor",
     href: href("Start contributing")
   }, {

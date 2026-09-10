@@ -62,6 +62,14 @@ button[style*="repeating-linear-gradient"]:not(:disabled):hover {
   .nv-footer-box .nv-footer-grid > div:first-child { grid-column: 1 / -1; }
 }
 
+/* ---- split header rows (heading left, subhead right) ----
+   Below ~1024px the right-hand subhead column gets too narrow and looks
+   indented/disconnected from the heading above it. Stack to one column,
+   matching the pre-grid flexbox behavior, until back above 760px (isMobile). */
+@media (min-width: 761px) and (max-width: 1024px) {
+  .nv-split-header { grid-template-columns: 1fr !important; }
+}
+
 /* ---- circular / square icon arrow buttons ---- */
 .cta-arrow-link:hover .cta-arrow { background: var(--color-primary) !important; border-style: solid !important; border-color: var(--color-primary) !important; }
 .cta-arrow-link:hover .cta-arrow svg { stroke: var(--color-on-primary) !important; }

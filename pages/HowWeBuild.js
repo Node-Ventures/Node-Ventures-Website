@@ -129,7 +129,7 @@ function HowWeBuild() {
         color: "var(--color-body)",
         margin: "14px 0 0"
       }
-    }, "Join the collective to put your skills to work on projects that match your passion, expertise and long-term goals. You choose your level of involvement."), /*#__PURE__*/React.createElement("div", {
+    }, "Join the collective to work on projects that match your passion, expertise and long-term goals. You choose your level of involvement."), /*#__PURE__*/React.createElement("div", {
       ref: hwScRef,
       className: "nv-howwe-scroll",
       style: {
@@ -217,7 +217,7 @@ function HowWeBuild() {
   }, /*#__PURE__*/React.createElement("div", {
     className: "nv-band-inner"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "nv-howwe-header",
+    className: "nv-split-header",
     style: {
       display: "grid",
       gridTemplateColumns: "1.6fr 1fr",
@@ -245,7 +245,7 @@ function HowWeBuild() {
       color: "var(--color-body)",
       margin: 0
     }
-  }, "Join the collective to put your skills to work on projects that match your passion, expertise and long-term goals. You choose your level of involvement.")), /*#__PURE__*/React.createElement("div", {
+  }, "Join the collective to work on projects that match your passion, expertise and long-term goals. You choose your level of involvement.")), /*#__PURE__*/React.createElement("div", {
     style: {
       position: "relative"
     }

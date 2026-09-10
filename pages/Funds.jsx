@@ -26,14 +26,14 @@ function Funds() {
     <section className="nv-grid-band" style={{ position: "relative", overflow: "hidden", paddingTop: isMobile ? 48 : 8, paddingBottom: isMobile ? 64 : 96, color: "var(--color-ink)" }}>
       <div className="nv-band-inner" style={{ position: "relative", zIndex: 2 }}>
         {/* header: heading left, subhead right */}
-        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1.6fr 1fr", alignItems: "end", padding: isMobile ? "0 0 24px" : "0 0 40px", gap: isMobile ? 14 : 32 }}>
-          <div>
+        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)", alignItems: "end", padding: isMobile ? "0 0 24px" : "0 0 40px", gap: isMobile ? 14 : 0 }}>
+          <div style={{ gridColumn: isMobile ? "auto" : "1 / 3" }}>
             <div className="nv-label">How to invest</div>
             <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--h2-weight)", fontSize: "var(--h2-size)", lineHeight: "var(--h2-line)", letterSpacing: "var(--h2-track)", margin: "10px 0 0", maxWidth: "12.5em" }}>
               Investment opportunities for every stage of growth.
             </h2>
           </div>
-          <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--body-lg-size)", lineHeight: "var(--body-lg-line)", color: "var(--color-body)", margin: 0 }}>
+          <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--body-lg-size)", lineHeight: "var(--body-lg-line)", color: "var(--color-body)", margin: 0, gridColumn: isMobile ? "auto" : "3 / 4" }}>
             Node Ventures offers investment structures designed to match your goals, timelines, and risk profiles.
           </p>
         </div>
@@ -50,7 +50,7 @@ function Funds() {
             <TopNode left={0} /><TopNode left="33.333%" /><TopNode left="66.666%" /><TopNode left="100%" />
             <BottomNode left={0} /><BottomNode left="33.333%" /><BottomNode left="66.666%" /><BottomNode left="100%" />
           </div>
-          <div ref={scRef} className="nv-3col nv-funds-boxes" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 0 }}>
+          <div ref={scRef} className="nv-3col nv-funds-boxes" style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)", gap: 0 }}>
             {items.map((it, i) => (
               <div key={it.t} style={{ position: "relative", padding: 40, minHeight: 300, display: "flex", flexDirection: "column" }}>
                 <span style={{ fontFamily: "var(--font-mono)", fontSize: 14, color: "var(--color-primary)" }}>0{i + 1}</span>

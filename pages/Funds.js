@@ -84,12 +84,16 @@ function Funds() {
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       display: "grid",
-      gridTemplateColumns: isMobile ? "1fr" : "1.6fr 1fr",
+      gridTemplateColumns: isMobile ? "1fr" : "minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)",
       alignItems: "end",
       padding: isMobile ? "0 0 24px" : "0 0 40px",
-      gap: isMobile ? 14 : 32
+      gap: isMobile ? 14 : 0
     }
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      gridColumn: isMobile ? "auto" : "1 / 3"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
     className: "nv-label"
   }, "How to invest"), /*#__PURE__*/React.createElement("h2", {
     style: {
@@ -107,7 +111,8 @@ function Funds() {
       fontSize: "var(--body-lg-size)",
       lineHeight: "var(--body-lg-line)",
       color: "var(--color-body)",
-      margin: 0
+      margin: 0,
+      gridColumn: isMobile ? "auto" : "3 / 4"
     }
   }, "Node Ventures offers investment structures designed to match your goals, timelines, and risk profiles.")), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -206,7 +211,7 @@ function Funds() {
     className: "nv-3col nv-funds-boxes",
     style: {
       display: "grid",
-      gridTemplateColumns: "1fr 1fr 1fr",
+      gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)",
       gap: 0
     }
   }, items.map((it, i) => /*#__PURE__*/React.createElement("div", {
