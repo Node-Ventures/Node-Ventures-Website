@@ -1,6 +1,6 @@
 // TrustedBy — an infinite horizontal logo marquee with fade-out edges.
 function TrustedBy() {
-  const logos = ["logos/landlogic.png", "logos/bluecanoe.png", "logos/parcella.png", "logos/aecorn.png", "logos/aeco.png", "logos/devnex.png", "logos/oneontario.png"];
+  const logos = ["logos/landlogic.png", "logos/bluecanoe.png", "logos/parcella.png", "logos/aecorn.png", "logos/aeco.png", "logos/oneontario.png"];
   const resolveAsset = p => window.__resources && window.__resources[p] || p;
   const loop = logos.concat(logos); // duplicate for seamless scroll
   return /*#__PURE__*/React.createElement("section", {
