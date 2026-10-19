@@ -102,7 +102,7 @@ function RealEstateAdvisory() {
           <div className="nv-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
             <div>
               <div className="nv-label">REAL ESTATE ADVISORY</div>
-              <h1 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--h1-weight)", fontSize: "var(--h1-size)", lineHeight: "var(--h1-line)", letterSpacing: "var(--h1-track)", color: "var(--color-ink)", margin: "18px 0 0", maxWidth: "11em" }}>
+              <h1 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--h1-weight)", fontSize: "var(--h1-size)", lineHeight: "var(--h1-line)", letterSpacing: "var(--h1-track)", color: "var(--color-ink)", margin: "18px 0 0", maxWidth: "9.5em" }}>
                 Understand the asset. Then decide what to do with it.
               </h1>
               <p style={{ ...bodyLg, marginTop: 22, maxWidth: 440 }}>

@@ -192,7 +192,7 @@ function RealEstateAdvisory() {
       letterSpacing: "var(--h1-track)",
       color: "var(--color-ink)",
       margin: "18px 0 0",
-      maxWidth: "11em"
+      maxWidth: "9.5em"
     }
   }, "Understand the asset. Then decide what to do with it."), /*#__PURE__*/React.createElement("p", {
     style: {
