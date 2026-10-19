@@ -1,0 +1,103 @@
+/* ============================================================
+   Real Estate Advisory page — page-specific styles
+   Loaded AFTER ../shared/site-ui.css and the page <style> block
+   (which carries the same shell rules as thecollective.html:
+   tokens, hero grid, notches, dot fields, swipe cards).
+   Everything here is prefixed .nv-ra-* so it can't leak into
+   other pages. Values match the approved design exactly.
+   ============================================================ */
+
+/* ---------- Hero: image tiles + stacked tags ---------- */
+.nv-ra-ph { position: relative; background: var(--color-surface-cream-strong, #DFE1D8); overflow: hidden; }
+.nv-ra-ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.nv-ra-hero-media { position: relative; }
+.nv-ra-tags {
+  position: absolute; bottom: 84px; right: -28px; z-index: 4;
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 6px;
+}
+.nv-ra-tag {
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--color-on-dark); background: var(--color-surface-dark); padding: 8px 12px; white-space: nowrap;
+}
+
+/* ---------- Lede: small heading left, two body paragraphs offset right ---------- */
+.nv-ra-intro {
+  display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.5fr) minmax(0, 1.5fr);
+  gap: 48px; align-items: start;
+}
+.nv-ra-intro-h { margin: 0; }
+.nv-ra-intro-p { margin: 0; color: var(--color-body); text-wrap: pretty; }
+
+/* ---------- "Your advantage": alternating image / text rows ---------- */
+.nv-ra-rows { margin-top: 88px; display: flex; flex-direction: column; gap: 96px; }
+.nv-ra-row {
+  display: grid; grid-template-columns: minmax(0, 560px) minmax(0, 410px);
+  justify-content: center; gap: 64px; align-items: center;
+}
+.nv-ra-row--flip { grid-template-columns: minmax(0, 410px) minmax(0, 560px); }
+.nv-ra-row--flip .nv-ra-img { order: 2; }
+.nv-ra-img { height: 380px; }
+.nv-ra-text { display: flex; flex-direction: column; align-items: flex-start; }
+.nv-ra-text h3, .nv-ra-text p, .nv-ra-text .nv-ra-copy { width: 100%; max-width: 410px; }
+
+/* ---------- Venn section (dark) ---------- */
+.nv-ra-venn-wrap { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 40px; align-items: stretch; }
+.nv-ra-venn-copy { display: flex; flex-direction: column; justify-content: space-between; gap: 40px; }
+.nv-ra-venn { max-width: 500px; width: 100%; margin: 0 auto; align-self: start; }
+.nv-ra-venn svg { display: block; width: 100%; height: auto; overflow: visible; }
+.nv-ra-venn-move { transition: transform 1.3s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.nv-ra-venn-fade { transition: opacity 0.8s ease 0.7s; }
+.nv-ra-venn-c { fill: rgba(116, 83, 255, 0.12); stroke: rgba(185, 169, 255, 0.6); stroke-width: 1; transition: fill .3s ease; }
+.nv-ra-venn-c:hover { fill: rgba(116, 83, 255, 0.26); }
+.nv-ra-venn-t { font-family: var(--font-display); font-size: 18px; fill: var(--color-on-dark); pointer-events: none; }
+.nv-ra-venn-i { fill: var(--color-primary-on-dark, #b9a9ff); pointer-events: none; }
+.nv-ra-venn-m { font-family: var(--font-mono); font-size: 13.5px; letter-spacing: 0.06em; text-transform: uppercase; fill: var(--color-on-dark); pointer-events: none; }
+
+/* ---------- Services: 2×2 cards ---------- */
+.nv-ra-card-img { height: 300px; margin-bottom: 32px; }
+.nv-ra-list { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.nv-ra-list li { position: relative; padding-left: 22px; font-family: var(--font-body); font-size: var(--body-size); line-height: 1.5; color: var(--color-body); }
+.nv-ra-list li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 7px; height: 7px; background: var(--color-primary); }
+/* rule between the two rows of a 2-column GridFrame */
+.nv-ra-grid2 .nv-focus-boxes > div:nth-child(n+3) { border-top: 1px solid var(--color-grid-line); }
+
+/* ---------- Service breakdown: 2×2 lists in the grid frame ---------- */
+.nv-ra-caps { margin-top: 120px; }
+.nv-ra-tgroup h3 { margin: 0 0 8px; font-size: 20px; }
+.nv-ra-tgroup ul { list-style: none; margin: 0; padding: 0; }
+.nv-ra-tgroup li {
+  padding: 12px 0; border-bottom: 1px dashed var(--color-grid-line);
+  font-family: var(--font-body); font-size: var(--body-sm-size); line-height: 1.45; color: var(--color-body);
+}
+.nv-ra-tgroup li:last-child { border-bottom: none; }
+
+@media (prefers-reduced-motion: reduce) { .nv-ra-venn-move, .nv-ra-venn-fade { transition: none; } }
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1080px) and (min-width: 761px) {
+  .nv-ra-intro { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .nv-ra-intro-h { grid-column: 1 / -1; }
+}
+@media (max-width: 900px) {
+  .nv-ra-row, .nv-ra-row--flip { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+  .nv-ra-img { height: 300px; }
+}
+
+/* ---------- Phone ---------- */
+@media (max-width: 760px) {
+  .nv-ra-tags { display: none; }
+  .nv-ra-lede-sec { padding-bottom: 48px !important; }
+  .nv-ra-adv-sec { padding-top: 16px !important; }
+  .nv-ra-intro { grid-template-columns: 1fr; gap: 20px; }
+  .nv-ra-rows { margin-top: 56px; gap: 56px; }
+  .nv-ra-row, .nv-ra-row--flip { grid-template-columns: 1fr; gap: 24px; }
+  .nv-ra-row--flip .nv-ra-img { order: 0; }
+  .nv-ra-img { height: 240px; }
+  .nv-ra-card-img { height: 200px; margin-bottom: 24px; }
+  /* Venn: heading, subhead, button, then the full diagram (scaled down) */
+  .nv-ra-venn-wrap { grid-template-columns: 1fr; gap: 40px; }
+  .nv-ra-venn-copy { gap: 32px; }
+  .nv-ra-caps { margin-top: 72px; }
+  /* service cards + breakdown become swipe cards via the shared .nv-swipe rules */
+}

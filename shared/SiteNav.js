@@ -11,6 +11,8 @@ function SiteNav() {
   // NOTE (pre-launch): Contribute / Invest / Ventures temporarily removed —
   // their pages aren't built yet. Restore these entries when they ship.
   const items = [{
+    label: "Real estate advisory"
+  }, {
     label: "The collective",
     href: "Contribute"
   }, {
@@ -21,7 +23,7 @@ function SiteNav() {
     menu: ["Asset fund", "Venture fund", "Debt fund"]
   }];
   const [open, setOpen] = React.useState(null);
-  const isMobile = window.useIsMobile ? window.useIsMobile() : false;
+  const isMobile = window.useIsMobile ? window.useIsMobile(1080) : false; // 4 top-level links no longer fit below 1080px → hamburger
   const [drawer, setDrawer] = React.useState(false);
   const [acc, setAcc] = React.useState(null); // which mobile accordion is open
   React.useEffect(() => {

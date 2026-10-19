@@ -89,7 +89,7 @@ function ContactForm() {
     Button
   } = window.NodeVenturesDesignSystem_1fd7b8;
   const href = window.NV_HREF || (() => "#");
-  const INQUIRIES = ["General inquiry", "Contribute my time", "Starting a venture", "Venture fund", "Debt fund", "Asset fund"];
+  const INQUIRIES = ["General inquiry", "Real estate advisory", "Contribute my time", "Start a venture", "Venture fund", "Debt fund", "Asset fund"];
   const INITIAL = {
     firstName: "",
     lastName: "",

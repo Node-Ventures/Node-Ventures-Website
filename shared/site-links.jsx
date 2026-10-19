@@ -10,6 +10,7 @@
   var PAGES = {
     "Home": "index.html",
     "Contribute": "thecollective.html",
+    "Real estate advisory": "real-estate-advisory.html",
     "Built environment": "domains/built-environment.html",
     "National defence": "domains/national-defence.html",
     "Enterprise AI": "domains/enterprise-ai.html",

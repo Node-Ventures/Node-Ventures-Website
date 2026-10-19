@@ -7,7 +7,7 @@ function SiteFooter() {
   // their pages aren't built yet. Restore when they ship.
   const cols = [{
     h: "How to engage",
-    links: [{
+    links: ["Real estate advisory", {
       label: "The collective",
       href: "Contribute"
     }, "Asset fund", "Venture fund", "Debt fund"]
