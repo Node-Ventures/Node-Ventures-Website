@@ -1,8 +1,8 @@
 // Content for the National Defence domain page. [DRAFT COPY — replace with final.]
 // Layout lives in DomainPage.jsx. Add `image:` fields when assets are supplied.
 window.DOMAIN_NATIONAL_DEFENCE = {
-  eyebrow: "National defence",
-  navLabel: "National defence",
+  eyebrow: "Security & resilience",
+  navLabel: "Security & resilience",
 
   hero: {
     headline: "Building digital capability for national defence.",

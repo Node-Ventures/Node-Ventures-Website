@@ -11,7 +11,7 @@ function SiteNav() {
   const items = [
     { label: "Real estate advisory" },
     { label: "The collective", href: "Contribute" },
-    { label: "Domains", menu: ["Built environment", "National defence", "Community infrastructure", "Enterprise AI"] },
+    { label: "Domains", menu: ["Built environment", "Community infrastructure", "Enterprise AI", "Security & resilience"] },
     { label: "Fund management", menu: ["Asset fund", "Venture fund", "Debt fund"] },
   ];
   const [open, setOpen] = React.useState(null);

@@ -17,7 +17,7 @@ function SiteNav() {
     href: "Contribute"
   }, {
     label: "Domains",
-    menu: ["Built environment", "National defence", "Community infrastructure", "Enterprise AI"]
+    menu: ["Built environment", "Community infrastructure", "Enterprise AI", "Security & resilience"]
   }, {
     label: "Fund management",
     menu: ["Asset fund", "Venture fund", "Debt fund"]
