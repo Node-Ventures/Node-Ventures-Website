@@ -9,10 +9,10 @@ function SiteNav() {
   // NOTE (pre-launch): Contribute / Invest / Ventures temporarily removed —
   // their pages aren't built yet. Restore these entries when they ship.
   const items = [
-    { label: "Real estate advisory" },
-    { label: "The collective", href: "Contribute" },
+    { label: "Advisory", menu: ["Real estate advisory", "Business advisory"] },
     { label: "Domains", menu: ["Built environment", "Community infrastructure", "Enterprise AI", "Security & resilience"] },
     { label: "Fund management", menu: ["Asset fund", "Venture fund", "Debt fund"] },
+    { label: "The collective", href: "Contribute" },
   ];
   const [open, setOpen] = React.useState(null);
   const isMobile = window.useIsMobile ? window.useIsMobile(1080) : false; // 4 top-level links no longer fit below 1080px → hamburger
