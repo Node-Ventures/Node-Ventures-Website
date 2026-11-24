@@ -49,7 +49,7 @@ window.DOMAIN_NOT_FOR_PROFIT = {
   quote: {
     text: "We had the industry expertise and the projects worth pursuing, but not always the internal capacity to deliver them. Having access to the right people and operational support helped us move those initiatives from planning to execution.",
     portrait: "assets/quote-not-for-profit.jpg",
-    logo: "assets/buildingsmart-canada-logo-v4.png",
+    logo: "assets/buildingsmart-canada-logo-v5.png",
     logoAlt: "buildingSMART Canada",
     lines: ["Gordon McElravy, Board of Directors", "buildingSMART Canada"]
   },
