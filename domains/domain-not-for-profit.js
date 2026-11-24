@@ -1,6 +1,5 @@
 // Content for the Not-for-profit domain page. Copy + images only — layout
 // lives in DomainPage.jsx. Rendered via <window.DomainPage data={...} />.
-// Do NOT mention OneOntario on this page (pending approval).
 window.DOMAIN_NOT_FOR_PROFIT = {
   eyebrow: "Not-for-profit",
   navLabel: "Not-for-profit",
@@ -46,13 +45,20 @@ window.DOMAIN_NOT_FOR_PROFIT = {
       b: "Connect industry, government, academia, and technology partners to create new opportunities for collaboration and collective impact."
     }]
   },
-  quote: {
+  // Several quotes → shown as a carousel with arrow buttons (like the homepage).
+  quotes: [{
     text: "We had the industry expertise and the projects worth pursuing, but not always the internal capacity to deliver them. Having access to the right people and operational support helped us move those initiatives from planning to execution.",
     portrait: "assets/quote-not-for-profit.jpg",
     logo: "assets/buildingsmart-canada-logo-v6.png",
     logoAlt: "buildingSMART Canada",
     lines: ["Gordon McElravy, Board of Directors", "buildingSMART Canada"]
-  },
+  }, {
+    text: "OneOntario has an ambitious vision, but bringing it to life requires more than industry support and expertise. Through Node Ventures, we've been able to access the people, operational resources, and capabilities needed to build the organization, advance key initiatives, and turn our vision into action.",
+    // portrait: none yet, shows a grey placeholder
+    logo: "assets/one-ontario-logo.svg",
+    logoAlt: "One Ontario",
+    lines: ["Richard Lyall, Chair of the Board", "One Ontario"]
+  }],
   getInvolved: {
     eyebrow: "Get involved",
     title: ["Put the collective to", "work for your organization."],

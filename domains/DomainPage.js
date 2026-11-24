@@ -8,11 +8,160 @@
 //     eyebrow, navLabel,
 //     hero:  { headline, body, image, primaryCta, secondaryCta },
 //     why:   { title, lead, cards: [{ t, b, image }] },          // 6 cards
-//     quote: { text, portrait, logo, logoAlt, lines: [] },
+//     quote: { text, portrait, logo, logoAlt, lines: [] },   // or quotes: [ {...}, {...} ] for a carousel
 //     getInvolved: { title, subhead, paths: [{ t, b, cta }] },   // 3 paths
 //     ventures: { title, lead },
 //     cta:   { title, body, primaryCta, secondaryCta },
 //   }
+// DomainQuoteCarousel — several quotes in the shared QuotePanel, with the same
+// slide animation and dashed arrow buttons as the homepage QuoteBlock.
+// Used when a domain's data has `quotes: [...]` instead of a single `quote`.
+function DomainQuoteCarousel({
+  quotes
+}) {
+  const {
+    ImageBox
+  } = window;
+  const resolveAsset = p => window.__resources && window.__resources[p] || p;
+  const [idx, setIdx] = React.useState(0);
+  const [tx, setTx] = React.useState(0);
+  const [op, setOp] = React.useState(1);
+  const [trans, setTrans] = React.useState(true);
+  const busy = React.useRef(false);
+  const go = dir => {
+    if (busy.current) return;
+    busy.current = true;
+    setTrans(true);
+    setTx(-48 * dir);
+    setOp(0); // slide current out
+    setTimeout(() => {
+      setTrans(false);
+      setTx(48 * dir);
+      setOp(0); // jump to the other side
+      setIdx(i => (i + dir + quotes.length) % quotes.length);
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        setTrans(true);
+        setTx(0);
+        setOp(1); // slide the new one in
+        setTimeout(() => {
+          busy.current = false;
+        }, 440);
+      }));
+    }, 360);
+  };
+  const cur = quotes[idx];
+  const slideStyle = {
+    transform: tx === 0 ? "none" : "translateX(" + tx + "px)",
+    opacity: op,
+    transition: trans ? "transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.4s ease" : "none"
+  };
+  const arrowBtn = {
+    width: 46,
+    height: 46,
+    padding: 0,
+    background: "transparent",
+    border: "1px dashed var(--color-muted)",
+    cursor: "pointer",
+    color: "var(--color-ink)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+  };
+  const arrow = flip => /*#__PURE__*/React.createElement("svg", {
+    width: "16",
+    height: "16",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.6",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    style: flip ? {
+      transform: "rotate(180deg)"
+    } : undefined,
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M5 12h14M13 6l6 6-6 6"
+  }));
+  const controls = quotes.length > 1 ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    "aria-label": "Previous quote",
+    onClick: () => go(-1),
+    style: arrowBtn
+  }, arrow(true)), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    "aria-label": "Next quote",
+    onClick: () => go(1),
+    style: {
+      ...arrowBtn,
+      marginLeft: -1
+    }
+  }, arrow(false))) : null;
+
+  // Every quote is laid out invisibly in the same spot, so the section is always
+  // as tall as the longest quote and the page below doesn't jump when sliding.
+  const sizers = quotes.map((q, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    "aria-hidden": "true",
+    style: {
+      gridArea: "1 / 1",
+      visibility: "hidden",
+      pointerEvents: "none"
+    }
+  }, /*#__PURE__*/React.createElement(window.QuotePanel, {
+    quote: q.text,
+    portrait: /*#__PURE__*/React.createElement("div", null),
+    logo: q.logo,
+    lines: q.lines || [],
+    controls: controls ? /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: 91,
+        height: 46
+      }
+    }) : null
+  })));
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid"
+    }
+  }, sizers, /*#__PURE__*/React.createElement("div", {
+    style: {
+      gridArea: "1 / 1",
+      display: "grid"
+    }
+  }, /*#__PURE__*/React.createElement(window.QuotePanel, {
+    quote: cur.text,
+    portrait: /*#__PURE__*/React.createElement("div", {
+      style: {
+        ...slideStyle,
+        width: "100%",
+        height: "100%"
+      }
+    }, cur.portrait ? /*#__PURE__*/React.createElement("img", {
+      src: resolveAsset(cur.portrait),
+      alt: "",
+      "aria-hidden": "true",
+      style: {
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        display: "block"
+      }
+    }) : /*#__PURE__*/React.createElement(ImageBox, {
+      label: "Portrait",
+      height: "100%",
+      style: {
+        height: "100%"
+      }
+    })),
+    logo: cur.logo,
+    logoAlt: cur.logoAlt,
+    lines: cur.lines || [],
+    slideStyle: slideStyle,
+    controls: controls
+  })));
+}
+window.DomainQuoteCarousel = DomainQuoteCarousel;
 function DomainPage({
   data
 }) {
@@ -221,7 +370,9 @@ function DomainPage({
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "nv-band-inner"
-  }, /*#__PURE__*/React.createElement(window.QuotePanel, {
+  }, Array.isArray(data.quotes) && data.quotes.length ? /*#__PURE__*/React.createElement(DomainQuoteCarousel, {
+    quotes: data.quotes
+  }) : /*#__PURE__*/React.createElement(window.QuotePanel, {
     quote: quote.text,
     portrait: quote.portrait ? /*#__PURE__*/React.createElement("img", {
       src: resolveAsset(quote.portrait),
