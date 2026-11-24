@@ -53,7 +53,7 @@ window.DOMAIN_NOT_FOR_PROFIT = {
     logoAlt: "buildingSMART Canada",
     lines: ["Gordon McElravy, Board of Directors", "buildingSMART Canada"]
   }, {
-    text: "OneOntario has an ambitious vision, but bringing it to life requires more than industry support and expertise. Through Node Ventures, we've been able to access the people, operational resources, and capabilities needed to build the organization, advance key initiatives, and turn our vision into action.",
+    text: "One Ontario has an ambitious vision, but bringing it to life requires more than industry support. Through Node Ventures, we've been able to access the operational resources and capabilities needed to build the organization, advance key initiatives, and turn our vision into action.",
     // portrait: none yet, shows a grey placeholder
     logo: "assets/one-ontario-logo.svg",
     logoAlt: "One Ontario",
