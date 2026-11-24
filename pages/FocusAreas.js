@@ -10,7 +10,7 @@ function FocusAreas() {
     b: "Accelerating how we plan, approve, build and manage the places where people live and work.",
     img: "photos/focus-building-iso.jpg"
   }, {
-    t: "National defence",
+    t: "Security & resilience",
     b: "Strengthening our technological sovereignty through secure, resilient digital capabilities.",
     img: "photos/focus-shield.jpg"
   }, {

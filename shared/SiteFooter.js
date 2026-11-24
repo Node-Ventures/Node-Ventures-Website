@@ -13,7 +13,7 @@ function SiteFooter() {
     }, "Asset fund", "Venture fund", "Debt fund"]
   }, {
     h: "Domains",
-    links: ["Built environment", "National defence", "Community infrastructure", "Enterprise AI"]
+    links: ["Built environment", "Security & resilience", "Community infrastructure", "Enterprise AI"]
   }, {
     h: "Company",
     links: [{

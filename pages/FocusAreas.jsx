@@ -5,7 +5,7 @@ function FocusAreas() {
   const href = window.NV_HREF || (() => "#");
   const areas = [
     { t: "Built environment", b: "Accelerating how we plan, approve, build and manage the places where people live and work.", img: "photos/focus-building-iso.jpg" },
-    { t: "National defence", b: "Strengthening our technological sovereignty through secure, resilient digital capabilities.", img: "photos/focus-shield.jpg" },
+    { t: "Security & resilience", b: "Strengthening our technological sovereignty through secure, resilient digital capabilities.", img: "photos/focus-shield.jpg" },
     { t: "Community infrastructure", b: "Building digital tools that support healthier, smarter, and more resilient communities across energy, mobility, education, and public systems.", img: "photos/focus-school.jpg" },
     { t: "Enterprise AI", b: "Helping organizations and teams unlock productivity, automate complex workflows, and adopt AI with confidence.", img: "photos/focus-desk.jpg" },
   ];
