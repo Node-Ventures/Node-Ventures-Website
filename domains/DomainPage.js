@@ -27,12 +27,17 @@ function DomainPage({
     GridCell
   } = window;
   const resolveAsset = p => window.__resources && window.__resources[p] || p;
+  // Phones only (≤760px): Get involved intro drops under the heading.
+  const isPhone = window.useIsMobile ? window.useIsMobile(760) : false;
 
   // Launch link routing: "contribute"-type CTAs → app login; everything else
   // (talk / invest / connect) → the contact page.
   const LOGIN = window.NV_HREF && window.NV_HREF("Start contributing") || "#";
   const CONTACT = window.NV_HREF && window.NV_HREF("Contact") || "../contact.html";
   const ctaHref = label => /contribut/i.test(label || "") ? LOGIN : CONTACT;
+  // Optional per-button link: "#anchor" stays on the page, otherwise it's a
+  // site-links label (e.g. "Contribute") resolved through NV_HREF.
+  const pathHref = p => !p.href ? ctaHref(p.cta) : p.href.charAt(0) === "#" ? p.href : window.NV_HREF && window.NV_HREF(p.href) || p.href;
 
   // Outlined secondary treatment for dark surfaces: transparent fill, cream
   // dashed frame + cream label, using the DS dash tokens so every dashed button
@@ -80,12 +85,11 @@ function DomainPage({
       objectFit: "cover",
       display: "block"
     }
-  }) : /*#__PURE__*/React.createElement(ImageBox, {
-    label: "Hero image",
-    height: "100%",
+  }) : /*#__PURE__*/React.createElement("div", {
     style: {
+      width: "100%",
       height: "100%",
-      border: "none"
+      background: "var(--color-surface-dark-elevated)"
     }
   })), /*#__PURE__*/React.createElement(window.HeroDots, {
     gap: 13
@@ -115,9 +119,11 @@ function DomainPage({
       letterSpacing: "var(--h1-track)",
       color: "var(--color-on-dark)",
       margin: "18px 0 0",
-      maxWidth: 620
+      maxWidth: hero.headlineMaxWidth || 620
     }
-  }, hero.headline), /*#__PURE__*/React.createElement("p", {
+  }, Array.isArray(hero.headline) ? hero.headline.map((line, i) => /*#__PURE__*/React.createElement(React.Fragment, {
+    key: i
+  }, i > 0 ? /*#__PURE__*/React.createElement("br", null) : null, line)) : hero.headline), /*#__PURE__*/React.createElement("p", {
     style: {
       fontFamily: "var(--font-body)",
       fontSize: "var(--body-lg-size)",
@@ -184,6 +190,7 @@ function DomainPage({
       width: "100%",
       height: 150,
       objectFit: "cover",
+      objectPosition: p.imagePosition || "center",
       display: "block"
     }
   }) : /*#__PURE__*/React.createElement(ImageBox, {
@@ -237,11 +244,13 @@ function DomainPage({
     logoAlt: quote.logoAlt,
     lines: quote.lines || []
   }))), /*#__PURE__*/React.createElement("section", {
+    id: gi.id,
     className: "nv-grid-band",
     style: {
       paddingTop: 96,
       paddingBottom: 96,
-      background: "var(--color-surface-soft)"
+      background: "var(--color-surface-soft)",
+      scrollMarginTop: 80
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "nv-band-inner"
@@ -255,19 +264,23 @@ function DomainPage({
     lead: gi.subhead
   })) : /*#__PURE__*/React.createElement("div", {
     style: {
+      marginBottom: 44
+    }
+  }, /*#__PURE__*/React.createElement(Eyebrow, null, gi.eyebrow || "Get involved"), /*#__PURE__*/React.createElement("div", {
+    style: {
       display: "flex",
       justifyContent: "space-between",
-      alignItems: "flex-end",
-      gap: 32,
-      marginBottom: 44,
-      flexWrap: "wrap"
+      gap: isPhone ? 20 : 48,
+      marginTop: 16,
+      flexDirection: isPhone ? "column" : "row",
+      alignItems: isPhone ? "flex-start" : "center"
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      maxWidth: 620
+      maxWidth: 620,
+      flex: "1 1 auto"
     }
   }, /*#__PURE__*/React.createElement(SectionHead, {
-    eyebrow: gi.eyebrow || "Get involved",
     title: gi.title
   })), /*#__PURE__*/React.createElement("p", {
     style: {
@@ -276,9 +289,11 @@ function DomainPage({
       lineHeight: "var(--body-lg-line)",
       color: "var(--color-body)",
       margin: 0,
-      maxWidth: 360
+      maxWidth: 360,
+      flex: isPhone ? "none" : "0 1 360px",
+      minWidth: isPhone ? 0 : 240
     }
-  }, gi.subhead)), /*#__PURE__*/React.createElement(GridFrame, {
+  }, gi.subhead))), /*#__PURE__*/React.createElement(GridFrame, {
     cols: 3,
     className: "nv-getinvolved"
   }, (gi.paths || []).map(p => {
@@ -294,7 +309,14 @@ function DomainPage({
       key: p.t,
       minHeight: 300,
       pad: 40
-    }, /*#__PURE__*/React.createElement("img", {
+    }, p.icon === null ? /*#__PURE__*/React.createElement(ImageBox, {
+      label: "",
+      height: 104,
+      style: {
+        width: 104,
+        marginTop: -6
+      }
+    }) : /*#__PURE__*/React.createElement("img", {
       src: resolveAsset(p.icon || giIcons[p.t] || "assets/focus-building.png"),
       alt: p.t,
       style: {
@@ -335,7 +357,7 @@ function DomainPage({
         paddingTop: 28
       }
     }, /*#__PURE__*/React.createElement("a", {
-      href: ctaHref(p.cta),
+      href: pathHref(p),
       style: {
         textDecoration: "none"
       }
@@ -380,7 +402,9 @@ function DomainPage({
       margin: "16px 0 0",
       maxWidth: 680
     }
-  }, cta.title), /*#__PURE__*/React.createElement("p", {
+  }, Array.isArray(cta.title) ? cta.title.map((line, i) => /*#__PURE__*/React.createElement(React.Fragment, {
+    key: i
+  }, i > 0 ? /*#__PURE__*/React.createElement("br", null) : null, line)) : cta.title), /*#__PURE__*/React.createElement("p", {
     style: {
       fontFamily: "var(--font-body)",
       fontSize: "var(--body-lg-size)",
@@ -397,7 +421,7 @@ function DomainPage({
       flexWrap: "wrap"
     }
   }, /*#__PURE__*/React.createElement("a", {
-    href: LOGIN,
+    href: cta.primaryHref ? window.NV_HREF && window.NV_HREF(cta.primaryHref) || cta.primaryHref : LOGIN,
     style: {
       textDecoration: "none"
     }

@@ -17,12 +17,19 @@ function DomainPage({ data }) {
   const { Button } = window.NodeVenturesDesignSystem_1fd7b8;
   const { Eyebrow, SectionHead, ImageBox, GridFrame, GridCell } = window;
   const resolveAsset = (p) => (window.__resources && window.__resources[p]) || p;
+  // Phones only (≤760px): Get involved intro drops under the heading.
+  const isPhone = window.useIsMobile ? window.useIsMobile(760) : false;
 
   // Launch link routing: "contribute"-type CTAs → app login; everything else
   // (talk / invest / connect) → the contact page.
   const LOGIN = (window.NV_HREF && window.NV_HREF("Start contributing")) || "#";
   const CONTACT = (window.NV_HREF && window.NV_HREF("Contact")) || "../contact.html";
   const ctaHref = (label) => /contribut/i.test(label || "") ? LOGIN : CONTACT;
+  // Optional per-button link: "#anchor" stays on the page, otherwise it's a
+  // site-links label (e.g. "Contribute") resolved through NV_HREF.
+  const pathHref = (p) => !p.href ? ctaHref(p.cta)
+    : p.href.charAt(0) === "#" ? p.href
+    : ((window.NV_HREF && window.NV_HREF(p.href)) || p.href);
 
   // Outlined secondary treatment for dark surfaces: transparent fill, cream
   // dashed frame + cream label, using the DS dash tokens so every dashed button
@@ -59,15 +66,18 @@ function DomainPage({ data }) {
           {hero.image
             ? <img src={resolveAsset(hero.image)} alt="" aria-hidden="true"
                 style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-            : <ImageBox label="Hero image" height="100%" style={{ height: "100%", border: "none" }} />}
+            : <div style={{ width: "100%", height: "100%", background: "var(--color-surface-dark-elevated)" }} />}
         </div>
         <window.HeroDots gap={13} />
         <div className="nv-band-inner" style={{ position: "relative", zIndex: 2 }}>
           <div style={{ maxWidth: 780, margin: "0 auto", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
             <Eyebrow onDark>{data.eyebrow}</Eyebrow>
             <h1 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--h1-weight)", fontSize: "var(--h1-size)",
-              lineHeight: "var(--h1-line)", letterSpacing: "var(--h1-track)", color: "var(--color-on-dark)", margin: "18px 0 0", maxWidth: 620 }}>
-              {hero.headline}
+              lineHeight: "var(--h1-line)", letterSpacing: "var(--h1-track)", color: "var(--color-on-dark)", margin: "18px 0 0", maxWidth: hero.headlineMaxWidth || 620 }}>
+              {/* headline can be an array of lines: each starts on a new line */}
+              {Array.isArray(hero.headline)
+                ? hero.headline.map((line, i) => <React.Fragment key={i}>{i > 0 ? <br /> : null}{line}</React.Fragment>)
+                : hero.headline}
             </h1>
             <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--body-lg-size)", lineHeight: "var(--body-lg-line)",
               color: "var(--color-on-dark-soft)", margin: "22px 0 0", maxWidth: 640 }}>
@@ -93,7 +103,7 @@ function DomainPage({ data }) {
                 style={i >= 3 ? { borderTop: "1px solid var(--color-grid-line)" } : undefined}>
                 {p.image
                   ? <img src={resolveAsset(p.image)} alt={p.t}
-                      style={{ width: "100%", height: 150, objectFit: "cover", display: "block" }} />
+                      style={{ width: "100%", height: 150, objectFit: "cover", objectPosition: p.imagePosition || "center", display: "block" }} />
                   : <ImageBox label={p.t} height={150} />}
                 <h3 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--h4-weight)", fontSize: 22,
                   letterSpacing: "var(--h4-track)", margin: "22px 0 0", color: "var(--color-ink)" }}>{p.t}</h3>
@@ -122,22 +132,29 @@ function DomainPage({ data }) {
       </section>
 
       {/* ===== 4 · GET INVOLVED / HOW IT WORKS ===== */}
-      <section className="nv-grid-band" style={{ paddingTop: 96, paddingBottom: 96, background: "var(--color-surface-soft)" }}>
+      <section id={gi.id} className="nv-grid-band" style={{ paddingTop: 96, paddingBottom: 96, background: "var(--color-surface-soft)", scrollMarginTop: 80 }}>
         <div className="nv-band-inner">
+          {/* Default: label on top, then heading (left) and intro (right) sitting
+              level with each other, however long the intro is.
+              layout: "stacked" (Enterprise AI) puts the intro under the heading. */}
           {gi.layout === "stacked" ? (
             <div style={{ marginBottom: 44 }}>
               <SectionHead eyebrow={gi.eyebrow || "Get involved"} title={gi.title} lead={gi.subhead} />
             </div>
           ) : (
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 32, marginBottom: 44, flexWrap: "wrap" }}>
-              <div style={{ maxWidth: 620 }}>
-                <SectionHead eyebrow={gi.eyebrow || "Get involved"} title={gi.title} />
+          <div style={{ marginBottom: 44 }}>
+            <Eyebrow>{gi.eyebrow || "Get involved"}</Eyebrow>
+            <div style={{ display: "flex", justifyContent: "space-between", gap: isPhone ? 20 : 48, marginTop: 16,
+              flexDirection: isPhone ? "column" : "row", alignItems: isPhone ? "flex-start" : "center" }}>
+              <div style={{ maxWidth: 620, flex: "1 1 auto" }}>
+                <SectionHead title={gi.title} />
               </div>
               <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--body-lg-size)", lineHeight: "var(--body-lg-line)",
-                color: "var(--color-body)", margin: 0, maxWidth: 360 }}>
+                color: "var(--color-body)", margin: 0, maxWidth: 360, flex: isPhone ? "none" : "0 1 360px", minWidth: isPhone ? 0 : 240 }}>
                 {gi.subhead}
               </p>
             </div>
+          </div>
           )}
           <GridFrame cols={3} className="nv-getinvolved">
             {(gi.paths || []).map((p) => {
@@ -151,8 +168,10 @@ function DomainPage({ data }) {
               };
               return (
               <GridCell key={p.t} minHeight={300} pad={40}>
-                <img src={resolveAsset(p.icon || giIcons[p.t] || "assets/focus-building.png")} alt={p.t}
-                  style={{ width: 104, height: 104, objectFit: "contain", display: "block", marginTop: -6 }} />
+                {p.icon === null
+                  ? <ImageBox label="" height={104} style={{ width: 104, marginTop: -6 }} />
+                  : <img src={resolveAsset(p.icon || giIcons[p.t] || "assets/focus-building.png")} alt={p.t}
+                      style={{ width: 104, height: 104, objectFit: "contain", display: "block", marginTop: -6 }} />}
                 {p.label ? <span style={{ fontFamily: "var(--font-mono)", fontSize: 14, color: "var(--color-primary)", display: "block", marginTop: 20 }}>{p.label}</span> : null}
                 <h3 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--h4-weight)", fontSize: "var(--h4-size)",
                   letterSpacing: "var(--h4-track)", margin: p.label ? "14px 0 0" : "20px 0 0", color: "var(--color-ink)" }}>{p.t}</h3>
@@ -160,7 +179,7 @@ function DomainPage({ data }) {
                   color: "var(--color-body)", margin: "12px 0 0" }}>{p.b}</p>
                 {p.cta ? (
                   <div style={{ marginTop: "auto", paddingTop: 28 }}>
-                    <a href={ctaHref(p.cta)} style={{ textDecoration: "none" }}><Button variant="primary" size="sm">{p.cta}</Button></a>
+                    <a href={pathHref(p)} style={{ textDecoration: "none" }}><Button variant="primary" size="sm">{p.cta}</Button></a>
                   </div>
                 ) : null}
               </GridCell>
@@ -180,14 +199,16 @@ function DomainPage({ data }) {
                 <Eyebrow onDark>Get started</Eyebrow>
                 <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--h2-weight)", fontSize: "var(--h2-size)",
                   lineHeight: "var(--h2-line)", letterSpacing: "var(--h2-track)", color: "var(--color-on-dark)", margin: "16px 0 0", maxWidth: 680 }}>
-                  {cta.title}
+                  {Array.isArray(cta.title)
+                    ? cta.title.map((line, i) => <React.Fragment key={i}>{i > 0 ? <br /> : null}{line}</React.Fragment>)
+                    : cta.title}
                 </h2>
                 <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--body-lg-size)", lineHeight: "var(--body-lg-line)",
                   color: "var(--color-on-dark-soft)", margin: "18px 0 0", maxWidth: 560 }}>
                   {cta.body}
                 </p>
                 <div style={{ display: "flex", gap: 12, marginTop: 30, flexWrap: "wrap" }}>
-                  <a href={LOGIN} style={{ textDecoration: "none" }}><Button variant="primary" size="lg">{cta.primaryCta || "Become a contributor"}</Button></a>
+                  <a href={cta.primaryHref ? ((window.NV_HREF && window.NV_HREF(cta.primaryHref)) || cta.primaryHref) : LOGIN} style={{ textDecoration: "none" }}><Button variant="primary" size="lg">{cta.primaryCta || "Become a contributor"}</Button></a>
                   {cta.secondaryCta === null ? null : <a href={CONTACT} style={{ textDecoration: "none" }}><Button variant="secondary" size="lg" style={ctaOutline}>{cta.secondaryCta || "Let's talk"}</Button></a>}
                 </div>
               </div>

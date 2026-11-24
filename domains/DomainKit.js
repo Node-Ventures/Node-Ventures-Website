@@ -44,7 +44,10 @@ function SectionHead({
       color: onDark ? "var(--color-on-dark)" : "var(--color-ink)",
       marginInline: align === "center" ? "auto" : undefined
     }
-  }, title), lead ? /*#__PURE__*/React.createElement("p", {
+  }, Array.isArray(title) ? title.map((line, i) => /*#__PURE__*/React.createElement(React.Fragment, {
+    key: i
+  }, i > 0 ? /*#__PURE__*/React.createElement("br", null) : null, line)) : title), (Array.isArray(lead) ? lead : lead ? [lead] : []).map((para, i) => /*#__PURE__*/React.createElement("p", {
+    key: i,
     style: {
       fontFamily: "var(--font-body)",
       fontSize: "var(--body-lg-size)",
@@ -54,7 +57,7 @@ function SectionHead({
       maxWidth: maxLead,
       marginInline: align === "center" ? "auto" : undefined
     }
-  }, lead) : null);
+  }, para)));
 }
 
 // Image placeholder — dashed frame + faint dot grid + mono caption. USER fills later.

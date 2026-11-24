@@ -20,14 +20,20 @@ function SectionHead({ eyebrow, title, lead, onDark, align = "left", maxTitle = 
         lineHeight: "var(--h2-line)", letterSpacing: "var(--h2-track)", margin: eyebrow ? "16px 0 0" : 0,
         maxWidth: maxTitle, color: onDark ? "var(--color-on-dark)" : "var(--color-ink)",
         marginInline: align === "center" ? "auto" : undefined,
-      }}>{title}</h2>
-      {lead ? (
-        <p style={{
+      }}>
+        {/* title can be an array of lines: each starts on a new line */}
+        {Array.isArray(title)
+          ? title.map((line, i) => <React.Fragment key={i}>{i > 0 ? <br /> : null}{line}</React.Fragment>)
+          : title}
+      </h2>
+      {/* lead can be one string, or an array of strings for several paragraphs */}
+      {(Array.isArray(lead) ? lead : lead ? [lead] : []).map((para, i) => (
+        <p key={i} style={{
           fontFamily: "var(--font-body)", fontSize: "var(--body-lg-size)", lineHeight: "var(--body-lg-line)",
           color: onDark ? "var(--color-on-dark-soft)" : "var(--color-body)", margin: "16px 0 0",
           maxWidth: maxLead, marginInline: align === "center" ? "auto" : undefined,
-        }}>{lead}</p>
-      ) : null}
+        }}>{para}</p>
+      ))}
     </div>
   );
 }
