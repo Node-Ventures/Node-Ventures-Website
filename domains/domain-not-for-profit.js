@@ -21,7 +21,7 @@ window.DOMAIN_NOT_FOR_PROFIT = {
       t: "Operational capacity",
       image: "assets/why-nfp-capacity.jpg",
       imagePosition: "center 65%",
-      b: "Node gives organizations the support they need to move initiatives forward without the cost and complexity of building a large internal team."
+      b: "Give organizations the support they need to move initiatives and projects forward without the cost and complexity of building a large internal team."
     }, {
       t: "Sustainable business models",
       image: "assets/why-nfp-business.jpg",

@@ -19,7 +19,7 @@ window.DOMAIN_NOT_FOR_PROFIT = {
     title: "Strong missions need the capacity to deliver results.",
     lead: "Not-for-profits play a vital role in bringing people together to address important industry and community challenges. Yet many operate with limited resources, relying on dedicated volunteers and industry experts to move their mandates forward. Node Ventures helps bridge that gap, bringing together the people, resources, and operating models that allow organizations to turn their expertise into sustainable, meaningful work.",
     cards: [
-      { t: "Operational capacity", image: "assets/why-nfp-capacity.jpg", imagePosition: "center 65%", b: "Node gives organizations the support they need to move initiatives forward without the cost and complexity of building a large internal team." },
+      { t: "Operational capacity", image: "assets/why-nfp-capacity.jpg", imagePosition: "center 65%", b: "Give organizations the support they need to move initiatives and projects forward without the cost and complexity of building a large internal team." },
       { t: "Sustainable business models", image: "assets/why-nfp-business.jpg", b: "Develop practical revenue and delivery models that support long-term financial stability and reduce dependence on one-time funding." },
       { t: "Program development", image: "assets/why-nfp-program.jpg", b: "Turn mandates into actionable programs and defined projects, then provide the hands-on support to execute them and deliver measurable results." },
       { t: "Funding & project opportunities", image: "assets/why-nfp-funding.jpg", b: "Build the capacity to identify, pursue, and deliver funded projects, contracts, and new opportunities that advance the organization's mission." },
