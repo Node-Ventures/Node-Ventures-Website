@@ -30,7 +30,7 @@ window.DOMAIN_NOT_FOR_PROFIT = {
   // Several quotes → shown as a carousel with arrow buttons (like the homepage).
   quotes: [
     {
-      text: "Our partnership with AECO Innovation Lab helped buildingSMART Canada advance important projects. That experience demonstrated the value of this collaborative model, and it's exciting to see Node Ventures build on that foundation and extend the same support to more not-for-profits across the industry.",
+      text: "Our partnership with AECO Innovation Lab helped buildingSMART Canada advance key projects. It's exciting to see Node Ventures build on this successful model and extend its support to more not-for-profits across the industry.",
       portrait: "assets/quote-not-for-profit.jpg",
       logo: "assets/buildingsmart-canada-logo-v6.png",
       logoAlt: "buildingSMART Canada",
