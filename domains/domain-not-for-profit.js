@@ -54,7 +54,8 @@ window.DOMAIN_NOT_FOR_PROFIT = {
     lines: ["Gordon McElravy, Board of Directors", "buildingSMART Canada"]
   }, {
     text: "Node Ventures has provided One Ontario with the operational resources and expertise needed to build our organization, advance key initiatives, and bring our ambitious vision to life.",
-    // portrait: none yet, shows a grey placeholder
+    portrait: "assets/quote-defence.jpg",
+    // same photo as the Security & resilience page quote
     logo: "assets/one-ontario-logo.svg",
     logoAlt: "One Ontario",
     lines: ["Richard Lyall, Chair of the Board", "One Ontario"]
