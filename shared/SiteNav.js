@@ -15,7 +15,7 @@ function SiteNav() {
     menu: ["Real estate advisory", "Business advisory"]
   }, {
     label: "Domains",
-    menu: ["Built environment", "Community infrastructure", "Enterprise AI", "Security & resilience"]
+    menu: ["Built environment", "Community infrastructure", "Enterprise AI", "Not-for-profit", "Security & resilience"]
   }, {
     label: "Fund management",
     menu: ["Asset fund", "Venture fund", "Debt fund"]

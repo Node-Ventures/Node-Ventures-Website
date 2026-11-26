@@ -1,5 +1,5 @@
 // FocusAreas — "Domains": left heading column, right a stacked list of the
-// four domains. Each row: small image left, content right.
+// domains. Each row: small image left, content right.
 function FocusAreas() {
   const {
     Button
@@ -21,8 +21,14 @@ function FocusAreas() {
     t: "Enterprise AI",
     b: "Helping organizations and teams unlock productivity, automate complex workflows, and adopt AI with confidence.",
     img: "photos/focus-desk.jpg"
+  }, {
+    t: "Not-for-profit",
+    b: "Connecting not-for-profit organizations with the expertise, operational resources, and partnerships to turn purpose into action.",
+    img: "photos/focus-bridge.jpg"
   }];
   const resolveAsset = p => window.__resources && window.__resources[p] || p;
+  // Left column stays put while the domain list scrolls (not on phones, where it stacks).
+  const isPhone = window.useIsMobile ? window.useIsMobile(760) : false;
   const LINE = "var(--color-grid-line)";
   const NW = 5,
     NH = 7; // triangle node, matching the Invest treatment
@@ -67,7 +73,7 @@ function FocusAreas() {
     className: "nv-grid-band",
     style: {
       position: "relative",
-      overflow: "hidden",
+      overflow: "clip",
       paddingTop: 96,
       paddingBottom: 96,
       color: "var(--color-ink)"
@@ -82,7 +88,12 @@ function FocusAreas() {
       gap: 72,
       alignItems: "start"
     }
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
+    style: isPhone ? undefined : {
+      position: "sticky",
+      top: 120
+    }
+  }, /*#__PURE__*/React.createElement("div", {
     className: "nv-label"
   }, "Domains"), /*#__PURE__*/React.createElement("h2", {
     style: {

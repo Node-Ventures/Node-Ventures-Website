@@ -6,7 +6,7 @@ function SiteFooter() {
   // their pages aren't built yet. Restore when they ship.
   const cols = [
     { h: "How to engage", links: ["Real estate advisory", "Business advisory", { label: "The collective", href: "Contribute" }, "Asset fund", "Venture fund", "Debt fund"] },
-    { h: "Domains", links: ["Built environment", "Security & resilience", "Community infrastructure", "Enterprise AI"] },
+    { h: "Domains", links: ["Built environment", "Security & resilience", "Community infrastructure", "Enterprise AI", "Not-for-profit"] },
     { h: "Company", links: [{ address: ["95 Mural St. Richmond Hill", "Ontario L4B 3G2"] }, "admin@nodeventures.ca", "Contact", "Log in"] },
   ];
   const Hover = ({ t }) => (

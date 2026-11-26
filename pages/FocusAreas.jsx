@@ -1,5 +1,5 @@
 // FocusAreas — "Domains": left heading column, right a stacked list of the
-// four domains. Each row: small image left, content right.
+// domains. Each row: small image left, content right.
 function FocusAreas() {
   const { Button } = window.NodeVenturesDesignSystem_1fd7b8;
   const href = window.NV_HREF || (() => "#");
@@ -8,8 +8,11 @@ function FocusAreas() {
     { t: "Security & resilience", b: "Strengthening our technological sovereignty through secure, resilient digital capabilities.", img: "photos/focus-shield.jpg" },
     { t: "Community infrastructure", b: "Building digital tools that support healthier, smarter, and more resilient communities across energy, mobility, education, and public systems.", img: "photos/focus-school.jpg" },
     { t: "Enterprise AI", b: "Helping organizations and teams unlock productivity, automate complex workflows, and adopt AI with confidence.", img: "photos/focus-desk.jpg" },
+    { t: "Not-for-profit", b: "Connecting not-for-profit organizations with the expertise, operational resources, and partnerships to turn purpose into action.", img: "photos/focus-bridge.jpg" },
   ];
   const resolveAsset = (p) => (window.__resources && window.__resources[p]) || p;
+  // Left column stays put while the domain list scrolls (not on phones, where it stacks).
+  const isPhone = window.useIsMobile ? window.useIsMobile(760) : false;
   const LINE = "var(--color-grid-line)";
   const NW = 5, NH = 7; // triangle node, matching the Invest treatment
   const SideNodes = () => (
@@ -25,11 +28,11 @@ function FocusAreas() {
     </React.Fragment>
   );
   return (
-    <section className="nv-grid-band" style={{ position: "relative", overflow: "hidden", paddingTop: 96, paddingBottom: 96, color: "var(--color-ink)" }}>
+    <section className="nv-grid-band" style={{ position: "relative", overflow: "clip", paddingTop: 96, paddingBottom: 96, color: "var(--color-ink)" }}>
       <div className="nv-band-inner">
         <div className="nv-transform-grid" style={{ display: "grid", gridTemplateColumns: "5fr 6fr", gap: 72, alignItems: "start" }}>
-          {/* left: label + heading + subhead + buttons */}
-          <div>
+          {/* left: label + heading + subhead + buttons (sticky on desktop/tablet) */}
+          <div style={isPhone ? undefined : { position: "sticky", top: 120 }}>
             <div className="nv-label">Domains</div>
             <h2 style={{ fontFamily: "var(--font-display)", fontWeight: "var(--h2-weight)", fontSize: "var(--h2-size)", lineHeight: "var(--h2-line)", letterSpacing: "var(--h2-track)", margin: "16px 0 0", maxWidth: 400 }}>
               Where we’re focused today.
@@ -42,7 +45,7 @@ function FocusAreas() {
               <a href={(window.NV_HREF && window.NV_HREF("Contact")) || "contact.html"} style={{ textDecoration: "none" }}><Button variant="secondary" size="md">Let’s talk</Button></a>
             </div>
           </div>
-          {/* right: the four domains, stacked */}
+          {/* right: the domains, stacked */}
           <div style={{ position: "relative" }}>
             <div aria-hidden="true" style={{ position: "absolute", top: 0, left: 0, right: 0, height: 1, background: LINE, pointerEvents: "none", zIndex: 2 }}></div>
             <div aria-hidden="true" style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 1, background: LINE, pointerEvents: "none", zIndex: 2 }}></div>

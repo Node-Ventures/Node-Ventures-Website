@@ -15,6 +15,7 @@
     "Built environment": "domains/built-environment.html",
     "National defence": "domains/national-defence.html",
     "Security & resilience": "domains/national-defence.html",
+    "Not-for-profit": "domains/not-for-profit.html",
     "Enterprise AI": "domains/enterprise-ai.html",
     "Community infrastructure": "domains/community-infrastructure.html",
     "Asset fund": "funds/asset-fund.html",
