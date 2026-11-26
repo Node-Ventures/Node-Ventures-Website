@@ -29,13 +29,15 @@ window.DOMAIN_NOT_FOR_PROFIT = {
 
   // Several quotes → shown as a carousel with arrow buttons (like the homepage).
   quotes: [
-    {
-      text: "Our partnership with AECO Innovation Lab helped buildingSMART Canada advance key projects. It's exciting to see Node Ventures build on this successful model and extend its support to more not-for-profits across the industry.",
-      portrait: "assets/quote-not-for-profit.jpg",
-      logo: "assets/buildingsmart-canada-logo-v6.png",
-      logoAlt: "buildingSMART Canada",
-      lines: ["Gordon McElravy, Board of Directors", "buildingSMART Canada"],
-    },
+    // ON HOLD until Gordon McElravy approves the wording (removed 2026-11-26).
+    // To put it back: delete the "// " at the start of the 7 lines below.
+    // {
+    //   text: "Our partnership with AECO Innovation Lab helped buildingSMART Canada advance key projects. It's exciting to see Node Ventures build on this successful model and extend its support to more not-for-profits across the industry.",
+    //   portrait: "assets/quote-not-for-profit.jpg",
+    //   logo: "assets/buildingsmart-canada-logo-v6.png",
+    //   logoAlt: "buildingSMART Canada",
+    //   lines: ["Gordon McElravy, Board of Directors", "buildingSMART Canada"],
+    // },
     {
       text: "Node Ventures has provided One Ontario with the operational resources and expertise needed to build our organization, advance key initiatives, and bring our ambitious vision to life.",
       portrait: "assets/quote-defence.jpg", // same photo as the Security & resilience page quote
