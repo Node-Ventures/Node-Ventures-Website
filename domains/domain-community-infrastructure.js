@@ -40,11 +40,21 @@ window.DOMAIN_COMMUNITY_INFRASTRUCTURE = {
       b: "Helping governments better serve their communities by transforming legacy workflows into more efficient services."
     }]
   },
+  // ON HOLD: Mark Whitell (3DRBI) quote, hidden 2026-11-26. To bring it back,
+  // delete the "// " at the start of the 7 lines below and delete the Saeid quote under it.
+  // quote: {
+  //   text: "Communities depend on more than the physical structures within them. They depend on the digital infrastructure that helps people navigate services, understand their options, and plan for the future.",
+  //   logoAlt: "3D Remote Building Inspections",
+  //   logo: "assets/logo-3drbi.png",
+  //   lines: ["CONTRIBUTOR: Mark Whitell", "VENTURE: 3DRBI"],
+  //   portrait: "assets/quote-community.jpg",
+  // },
+  // Stand-in: Saeid's quote, repeated from the homepage carousel.
   quote: {
-    text: "Communities depend on more than the physical structures within them. They depend on the digital infrastructure that helps people navigate services, understand their options, and plan for the future.",
-    logoAlt: "3D Remote Building Inspections",
-    logo: "assets/logo-3drbi.png",
-    lines: ["CONTRIBUTOR: Mark Whitell", "VENTURE: 3DRBI"],
+    text: "Contributing to Node means working on problems that have a direct impact on how communities are planned and built. It's exciting to see research become tools that people can actually use.",
+    logoAlt: "LandLogic",
+    logo: "assets/landlogic-logo.svg",
+    lines: ["Contributor: Saeid Emamgholian, Data Scientist", "Venture: LandLogic Inc."],
     portrait: "assets/quote-community.jpg"
   },
   getInvolved: {
